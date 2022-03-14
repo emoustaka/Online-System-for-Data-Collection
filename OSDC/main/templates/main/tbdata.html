@@ -1,0 +1,253 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Vaccination data
+{% endblock %}
+
+{% block header %}
+    <h1 class="text-white" style="opacity: 0.8;">Tuberculosis data</h1>
+{% endblock %}
+
+ {% block blank%}
+	none
+ {% endblock %}
+
+{% block hr %}
+    block
+{% endblock %}
+ 
+ {% block hr-padding %}
+    0vh
+ {% endblock %}
+
+{% block home %}
+    <div class="col-2 p-0" style="background-image:linear-gradient(to left, transparent, #1f7a82);">
+    </div>
+
+	<div  class="col-8 text-left pt-4 pb-4">
+        <div class="row justify-content-center m-1 container" style="margin-left:0px; margin-right:0px; min-height:20px;">
+
+            <div class="col-12 text-white">
+                <h4 class="text text-white" style="opacity: 0.8;">Type of Tuberculosis</h4>
+            </div>
+            <div class="col-12 col-md-7 text-white">
+                <div id="chartContainer1" style="height: 300px; width: 100%;"></div>
+            </div>
+
+            <div class="col-12 col-md-5 text-white">
+                <p class="text text-white" style="opacity: 0.8; text-align: justify;">Not everyone infected with TB bacteria becomes sick. As a result, two TB-related conditions exist: latent TB infection and TB disease. TB bacteria can live in the body without making you sick. This is called latent TB infection. Many people who have latent TB infection never develop TB disease. But in other people, especially people who have a weak immune system, the bacteria become active, multiply, and cause TB disease. People with TB disease are sick. They may also be able to spread the bacteria to people they spend time with every day.</p>
+            </div>
+
+            <hr>
+
+            <div class="col-12 text-white">
+                <h4 class="text text-white" style="opacity: 0.8;">Vaccinated against TB</h4>
+            </div>
+
+            <div class="col-12 col-md-7 text-white">
+                <div id="chartContainer2" style="height: 300px; width: 100%;"></div>
+            </div>
+
+            <div class="col-12 col-md-5 text-white">
+                <p class="text text-white" style="opacity: 0.8; text-align: justify;">Bacille Calmette-Guérin (BCG) is a vaccine for tuberculosis (TB) disease. This vaccine is not widely used in the United States, but it is often given to infants and small children in other countries where TB is common. BCG does not always protect people from getting TB.</p>
+            </div>
+
+            <hr>
+
+            <div class="col-12 text-white">
+                <h4 class="text text-white" style="opacity: 0.8;">Antibiotic consumption</h4>
+            </div>
+
+            <div class="col-12 col-md-7 text-white">
+                <div id="chartContainer3" style="height: 300px; width: 100%;"></div>
+            </div>
+
+            <div class="col-12 col-md-5 text-white">
+                <p class="text text-white" style="opacity: 0.8; text-align: justify;">TB is a treatable and curable disease. Active, drug-susceptible TB disease is treated with a standard 6-month course of 4 antimicrobial drugs that are provided with information and support to the patient by a health worker or trained volunteer. Without such support, treatment adherence is more difficult.
+                </p>
+            </div>
+
+            <hr>
+
+            <div class="col-12 text-white">
+                <h4 class="text text-white" style="opacity: 0.8;">Diagnostic method undertaken</h4>
+            </div>
+
+            <div class="col-12 col-md-7 text-white">
+                <div id="chartContainer4" style="height: 300px; width: 100%;"></div>
+            </div>
+
+            <div class="col-12 col-md-5 text-white">
+                <p class="text text-white" style="opacity: 0.8; text-align: justify;">In recent years, WHO reviewed and endorsed the use of several tests for TB diagnosis that are meant to be used at different levels of care. These methods mainly refer to Greek’s Health System about which we had the opportunity to discuss with several healthcare specialists.</p>
+            </div>
+
+        </div>  
+
+    </div>
+
+    <div class="col-2 p-0" style=" background: linear-gradient(to right, transparent, #1f7a82);">
+    </div>
+<!--custom tooltip container
+<div id="chart-tooltip"></div>-->
+{%endblock%}
+
+{%block script%}
+
+
+  <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+<script type="text/javascript">
+    window.onload = function () {
+        
+        var chart1 = new CanvasJS.Chart("chartContainer1",
+            {
+                title:{
+                    text: " ",
+                    fontFamily: "Segoe UI",
+                    fontWeight: "bold",
+                    fontColor: "white"
+                },
+                backgroundColor: "transparent",
+                legend:{
+                    verticalAlign: "bottom",
+                    horizontalAlign: "center",
+                    fontColor: "white"
+                },
+                data: [
+                {
+                    startAngle: 45,
+                    indexLabelFontSize: 12,
+                    indexLabelFontFamily: "Segoe UI",
+                    indexLabelFontColor: "white",
+                    indexLabelLineColor: "white",
+                    indexLabelPlacement: "outside",
+                    type: "doughnut",
+                    showInLegend: true,
+                    toolTipContent: "{name}: <strong>(#percent%)</strong>",
+                    indexLabel: "{name} -  #percent%",
+                    dataPoints: [
+                    {  y: {{active}}, name:"Active TB", color: "#f9cf91"},
+                    {  y: {{latend}}, name:"Latend TB", color: "#787195" }
+                    ],
+                }]
+            }
+        );
+
+        chart1.render();
+        
+        var chart2 = new CanvasJS.Chart("chartContainer2",
+            {
+                title:{
+                    text: " ",
+                    fontFamily: "Segoe UI",
+                    fontWeight: "bold",
+                    fontColor: "white"
+                },
+                backgroundColor: "transparent",
+                legend:{
+                    verticalAlign: "bottom",
+                    horizontalAlign: "center",
+                    fontColor: "white"
+                },
+                data: [
+                {
+                    startAngle: 45,
+                    indexLabelFontSize: 12,
+                    indexLabelFontFamily: "Segoe UI",
+                    indexLabelFontColor: "white",
+                    indexLabelLineColor: "white",
+                    indexLabelPlacement: "outside",
+                    type: "doughnut",
+                    showInLegend: true,
+                    toolTipContent: "{name}: <strong>(#percent%)</strong>",
+                    indexLabel: "{name} -  #percent%",
+                    dataPoints: [
+                    {  y: {{trueV}}, name:"Vaccinated", color: "#f9cf91"},
+                    {  y: {{falseV}}, name:"Unvaccinated", color: "#787195" }
+                    ],
+                }]
+            }
+        );
+
+        chart2.render();
+        
+        var chart3 = new CanvasJS.Chart("chartContainer3",
+            {
+                title:{
+                    text: " ",
+                    fontFamily: "Segoe UI",
+                    fontWeight: "bold",
+                    fontColor: "white"
+                },
+                backgroundColor: "transparent",
+                legend:{
+                    verticalAlign: "bottom",
+                    horizontalAlign: "center",
+                    fontColor: "white"
+                },
+                data: [
+                {
+                    startAngle: 45,
+                    indexLabelFontSize: 12,
+                    indexLabelFontFamily: "Segoe UI",
+                    indexLabelFontColor: "white",
+                    indexLabelLineColor: "white",
+                    indexLabelPlacement: "outside",
+                    type: "doughnut",
+                    showInLegend: true,
+                    toolTipContent: "{name}: <strong>(#percent%)</strong>",
+                    indexLabel: "{name} -  #percent%",
+                    dataPoints: [
+                    {  y: {{trueA}}, name:"Taking antibiotics", color: "#f9cf91"},
+                    {  y: {{falseA}}, name:"Not taking antibiotics", color: "#787195" }
+                    ],
+                }]
+            }
+        );
+
+        chart3.render();
+        
+        var chart4 = new CanvasJS.Chart("chartContainer4",
+            {
+                title:{
+                    text: " ",
+                    fontFamily: "Segoe UI",
+                    fontWeight: "bold",
+                    fontColor: "white"
+                },
+                backgroundColor: "transparent",
+                legend:{
+                    verticalAlign: "bottom",
+                    horizontalAlign: "center",
+                    fontColor: "white"
+                },
+                data: [
+                {
+                    startAngle: 45,
+                    indexLabelFontSize: 12,
+                    indexLabelFontFamily: "Segoe UI",
+                    indexLabelFontColor: "white",
+                    indexLabelLineColor: "white",
+                    indexLabelPlacement: "outside",
+                    type: "doughnut",
+                    showInLegend: true,
+                    toolTipContent: "{name}: <strong>(#percent%)</strong>",
+                    indexLabel: "{name} -  #percent%",
+                    dataPoints: [
+                    {  y: {{diagnostic1}}, name:"Smear Microscopy", color: "#f9cf91"},
+                    {  y: {{diagnostic2}}, name:"XPERT/RIF", color: "#787195" },
+                    {  y: {{diagnostic3}}, name:"Lypoarabinomannan (LAM) Test", color: "#f2b762"},
+                    {  y: {{diagnostic4}}, name:"Tuberculin Skin Test (TST)", color: "#343565" },
+                    {  y: {{diagnostic5}}, name:"Interferon Gamma Release Assays (IGRAs)", color: "#1f7a82"},
+                    {  y: {{diagnostic6}}, name:"ODYSSEE", color: "#363636" }
+                    ],
+                }]
+            }
+        );
+
+        chart4.render();
+    }
+</script>
+
+
+{%endblock%}

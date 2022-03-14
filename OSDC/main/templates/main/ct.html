@@ -1,0 +1,22 @@
+{% extends 'main/edit.html' %}
+
+{% block title %}
+Current Treatment
+{% endblock %}
+
+{% load crispy_forms_tags %}
+
+    {% block header %}
+        <h1 class="text-white" style="opacity: 0.8;">Current Treatment</h1>
+    {% endblock %}
+
+
+{% block content %}
+
+	<form method="post" action="/ct/" class="text-white">
+        {% csrf_token %}
+        {{form|crispy}}
+	  	<button name="save" type="submit" class="btn btn-lg btn-block" style="background-image:linear-gradient(to left, transparent, #1f7a82 49%, #1f7a82 51%, transparent);"><div class="text-white" style="opacity:0.7;">Save</div></button>
+	</form>
+
+{% endblock %}

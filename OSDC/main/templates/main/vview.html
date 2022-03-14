@@ -1,0 +1,208 @@
+{% extends 'main/view.html' %}
+{% load static %}
+
+
+{% block title %}
+Vaccinations
+{% endblock %}
+
+{% block header %}
+    <h1 class="text-white" style="opacity: 0.8;">Vaccinations</h1>
+{% endblock %}
+
+
+{% block info %}
+
+
+    <div class="text">
+         <p>Here will be presented your vaccinations' data, if you are registered in the platform.</p>
+    </div>
+
+{% endblock %}
+
+{% block content %}
+		{% if current_user.vaccinations.all %}
+    			{% for v in current_user.vaccinations.all %}
+					<table class="table text-white">
+						<thead>
+						<tr>
+							<th scope="col">#</th>
+							<th scope="col">Vaccine</th>
+							<th scope="col">Date of last dose</th>
+							<th scope="col">Completed vaccination</th>
+						</tr>
+						</thead>
+						<tbody>
+						<tr>
+							<th scope="row">1</th>
+							<td>Chickenpox</td>
+							<td>{{v.chickenpoxD}}</td>
+							<td>{{v.chickenpox}}</td>
+						</tr>
+						<tr>
+							<th scope="row">2</th>
+							<td>DT</td>
+							<td>{{v.dtD}}</td>
+							<td>{{v.dt}}</td>
+						</tr>
+						<tr>
+							<th scope="row">3</th>
+							<td>DTap</td>
+							<td>{{v.dtapD}}</td>
+							<td>{{v.dtap}}</td>
+						</tr>
+						</tbody>
+						<tr>
+							<th scope="row">4</th>
+							<td>Td</td>
+							<td>{{v.tdD}}</td>
+							<td>{{v.td}}</td>
+						</tr>
+						</tbody>
+						<tr>
+							<th scope="row">5</th>
+							<td>Tdap</td>
+							<td>{{v.tdapD}}</td>
+							<td>{{v.tdap}}</td>
+						</tr>
+						</tbody>
+						<tr>
+							<th scope="row">6</th>
+							<td>flu</td>
+							<td>{{v.fluD}}</td>
+							<td>{{v.flu}}</td>
+						</tr>
+						</tbody>
+						<tr>
+							<th scope="row">7</th>
+							<td>HAV</td>
+							<td>{{v.havD}}</td>
+							<td>{{v.hav}}</td>
+						</tr>
+						</tbody>
+						<tr>
+							<th scope="row">8</th>
+							<td>HBV</td>
+							<td>{{v.hbvD}}</td>
+							<td>{{v.hbv}}</td>
+						</tr>
+						</tbody>
+						<tr>
+							<th scope="row">9</th>
+							<td>HIB</td>
+							<td>{{v.hibD}}</td>
+							<td>{{v.hib}}</td>
+						</tr>
+						</tbody>
+						<tr>
+							<th scope="row">10</th>
+							<td>HPV</td>
+							<td>{{v.hpvD}}</td>
+							<td>{{v.hpv}}</td>
+						</tr>
+						</tbody>
+						<tr>
+							<th scope="row">11</th>
+							<td>NMR</td>
+							<td>{{v.mmrD}}</td>
+							<td>{{v.mmr}}</td>
+						</tr>
+						</tbody>
+						<tr>
+							<th scope="row">12</th>
+							<td>meningococcal</td>
+							<td>{{v.meningococcalD}}</td>
+							<td>{{v.meningococcal}}</td>
+						</tr>
+						</tbody>
+						<tr>
+							<th scope="row">13</th>
+							<td>PCV13</td>
+							<td>{{v.pcv13D}}</td>
+							<td>{{v.pcv13}}</td>
+						</tr>
+						</tbody>
+						<tr>
+							<th scope="row">14</th>
+							<td>PPSV23</td>
+							<td>{{v.ppsv23D}}</td>
+							<td>{{v.ppsv23}}</td>
+						</tr>
+						</tbody>
+						<tr>
+							<th scope="row">15</th>
+							<td>IPV</td>
+							<td>{{v.ipvD}}</td>
+							<td>{{v.ipv}}</td>
+						</tr>
+						</tbody>
+						<tr>
+							<th scope="row">16</th>
+							<td>OPV</td>
+							<td>{{v.opvD}}</td>
+							<td>{{v.opv}}</td>
+						</tr>
+						</tbody>
+						<tr>
+							<th scope="row">17</th>
+							<td>rotavirus</td>
+							<td>{{v.rotavirusD}}</td>
+							<td>{{v.rotavirus}}</td>
+						</tr>
+						</tbody>
+						<tr>
+							<th scope="row">18</th>
+							<td>RZV</td>
+							<td>{{v.rzvD}}</td>
+							<td>{{v.rzv}}</td>
+						</tr>
+						</tbody>
+						<tr>
+							<th scope="row">19</th>
+							<td>BCG</td>
+							<td>{{v.bcgD}}</td>
+							<td>{{v.bcg}}</td>
+						</tr>
+						</tbody>
+						<tr>
+							<th scope="row">20</th>
+							<td>tyfoid fever</td>
+							<td>{{v.tyfoidFeverD}}</td>
+							<td>{{v.tyfoidFever}}</td>
+						</tr>
+						</tbody>
+						<tr>
+							<th scope="row">21</th>
+							<td>yellow fever</td>
+							<td>{{v.yellowFeverD}}</td>
+							<td>{{v.yellowFever}}</td>
+						</tr>
+						</tbody>
+						<tr>
+							<th scope="row">22</th>
+							<td>Covid-19</td>
+							<td>{{v.covid19D}}</td>
+							<td>{{v.covid19}}</td>
+						</tr>
+						</tbody>
+					</table>
+    			{% endfor %}
+			{% else %}
+				<div class="row justify-content-center">
+					<p>Here will be presented all your vaccinations data.</p>
+				</div>
+			{% endif %}
+{% endblock %}
+
+{% block image %}
+	url('{% static 'main/Vmt.png' %}')
+{% endblock %}
+
+{% block button %}
+	Edit Vaccinations
+{% endblock %}
+
+{% block link %}
+	/v
+{% endblock %}
+

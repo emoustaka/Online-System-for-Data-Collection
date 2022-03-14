@@ -1,0 +1,57 @@
+{% extends 'main/view.html' %}
+{% load static %}
+
+{% block title %}
+Gynecological History
+{% endblock %}
+
+{% block header %}
+    <h1 class="text-white" style="opacity: 0.8;">Gynecological History</h1>
+{% endblock %}
+
+{% block info %}
+
+
+    <div class="text">
+         <p>Here will be presented your Gynecological History data, if you are registered in the platform.</p>
+    </div>
+
+{% endblock %}
+
+{% block content %}
+			{% if current_user.gynecologicalhistory.all %}
+				{% for gh in current_user.gynecologicalhistory.all %}
+					<p>Age of onset of menstruation: {{gh.startAge}}</p>
+                    <hr>
+					<p>Age of offset of menopause: {{gh.endAge}}</p>
+                    <hr>
+					<p>Number of children: {{gh.numOfChildren}}</p>
+                    <hr>
+					<p>Hystory of endometriosis: {{gh.endometriosis}}</p>
+                    <hr>
+					<p>History of polycystic ovary syndrome: {{gh.polycysticOvarySyndrome}}</p>
+                    <hr>
+					<p>Duration of hormonal therapy for contraception: {{gh.hormonalContraceptiveTherapy}}</p>
+                    <hr>
+					<p>Duration of hormonal therapy to achieve pregnancy: {{gh.hormoneTherapyPregnancy}}</p>
+				    <hr>
+					<p>Number of pregnancies not completed: {{gh.notCompletedPregnancies}}</p>
+				{% endfor %}
+			{% else %}
+				<div class="row justify-content-center">
+					<p>Here will be presented all your gynecological history data.</p>
+				</div>
+			{% endif %}
+{% endblock %}
+
+{% block image %}
+	url('{% static 'main/GHmt.png' %}')
+{% endblock %}
+
+{% block button %}
+	Edit Gynecological History
+{% endblock %}
+
+{% block link %}
+	/gh
+{% endblock %}

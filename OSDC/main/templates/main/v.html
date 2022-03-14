@@ -1,0 +1,185 @@
+{% extends 'main/edit.html' %}
+
+{% block title %}
+Vaccinations
+{% endblock %}
+
+{% load crispy_forms_tags %}
+
+    {% block header %}
+        <h1 class="text-white" style="opacity: 0.8;">Vaccinations</h1>
+    {% endblock %}
+
+
+{% block content %}
+
+	<form method="post" action="/v/" class="text-white">
+        {% csrf_token %}
+        
+        <div class="form-row">
+            <div class="form-group col-md-5 mb-0">
+              {{ form.chickenpox|as_crispy_field }}
+              {{ form.chickenpoxD|as_crispy_field }}
+            </div>
+            <div class="form-group col-md-2 mb-0">
+            </div>
+            <div class="form-group col-md-5 mb-0">
+              {{ form.dt|as_crispy_field }}
+              {{ form.dtD|as_crispy_field }}
+            </div>
+        </div>
+        
+        <hr>
+        
+        <div class="form-row">
+            <div class="form-group col-md-5 mb-0">
+              {{ form.dtap|as_crispy_field }}
+              {{ form.dtapD|as_crispy_field }}
+            </div>
+            <div class="form-group col-md-2 mb-0">
+            </div>
+            <div class="form-group col-md-5 mb-0">
+              {{ form.td|as_crispy_field }}
+              {{ form.tdD|as_crispy_field }}
+            </div>
+        </div>
+        
+        <hr>
+        
+        <div class="form-row">
+            <div class="form-group col-md-5 mb-0">
+              {{ form.tdap|as_crispy_field }}
+              {{ form.tdapD|as_crispy_field }}
+            </div>
+            <div class="form-group col-md-2 mb-0">
+            </div>
+            <div class="form-group col-md-5 mb-0">
+              {{ form.flu|as_crispy_field }}
+              {{ form.fluD|as_crispy_field }}
+            </div>
+        </div>
+        
+        <hr>
+        
+        <div class="form-row">
+            <div class="form-group col-md-5 mb-0">
+              {{ form.hav|as_crispy_field }}
+              {{ form.havD|as_crispy_field }}
+            </div>
+            <div class="form-group col-md-2 mb-0">
+            </div>
+            <div class="form-group col-md-5 mb-0">
+              {{ form.hbv|as_crispy_field }}
+              {{ form.hbvD|as_crispy_field }}
+            </div>
+        </div>
+        
+        <hr>
+        
+        <div class="form-row">
+            <div class="form-group col-md-5 mb-0">
+              {{ form.hib|as_crispy_field }}
+              {{ form.hibD|as_crispy_field }}
+            </div>
+            <div class="form-group col-md-2 mb-0">
+            </div>
+            <div class="form-group col-md-5 mb-0">
+              {{ form.hpv|as_crispy_field }}
+              {{ form.hpvD|as_crispy_field }}
+            </div>
+        </div>
+        
+        <hr>
+        
+        <div class="form-row">
+            <div class="form-group col-md-5 mb-0">
+              {{ form.mmr|as_crispy_field }}
+              {{ form.mmrD|as_crispy_field }}
+            </div>
+            <div class="form-group col-md-2 mb-0">
+            </div>
+            <div class="form-group col-md-5 mb-0">
+              {{ form.meningococcal|as_crispy_field }}
+              {{ form.meningococcalD|as_crispy_field }}
+            </div>
+        </div>
+        
+        <hr>
+        
+        <div class="form-row">
+            <div class="form-group col-md-5 mb-0">
+              {{ form.pcv13|as_crispy_field }}
+              {{ form.pcv13D|as_crispy_field }}
+            </div>
+            <div class="form-group col-md-2 mb-0">
+            </div>
+            <div class="form-group col-md-5 mb-0">
+              {{ form.ppsv23|as_crispy_field }}
+              {{ form.ppsv23D|as_crispy_field }}
+            </div>
+        </div>
+        
+        <hr>
+        
+        <div class="form-row">
+            <div class="form-group col-md-5 mb-0">
+              {{ form.ipv|as_crispy_field }}
+              {{ form.ipvD|as_crispy_field }}
+            </div>
+            <div class="form-group col-md-2 mb-0">
+            </div>
+            <div class="form-group col-md-5 mb-0">
+              {{ form.opv|as_crispy_field }}
+              {{ form.opvD|as_crispy_field }}
+            </div>
+        </div>
+        
+        <hr>
+        
+        <div class="form-row">
+            <div class="form-group col-md-5 mb-0">
+              {{ form.rotavirus|as_crispy_field }}
+              {{ form.rotavirusD|as_crispy_field }}
+            </div>
+            <div class="form-group col-md-2 mb-0">
+            </div>
+            <div class="form-group col-md-5 mb-0">
+              {{ form.rzv|as_crispy_field }}
+              {{ form.rzvD|as_crispy_field }}
+            </div>
+        </div>
+        
+        <hr>
+        
+        <div class="form-row">
+            <div class="form-group col-md-5 mb-0">
+              {{ form.bcg|as_crispy_field }}
+              {{ form.bcgD|as_crispy_field }}
+            </div>
+            <div class="form-group col-md-2 mb-0">
+            </div>
+            <div class="form-group col-md-5 mb-0">
+              {{ form.tyfoidFever|as_crispy_field }}
+              {{ form.tyfoidFeverD|as_crispy_field }}
+            </div>
+        </div>
+        
+        <hr>
+        
+        <div class="form-row">
+            <div class="form-group col-md-5 mb-0">
+              {{ form.yellowFever|as_crispy_field }}
+              {{ form.yellowFeverD|as_crispy_field }}
+            </div>
+            <div class="form-group col-md-2 mb-0">
+            </div>
+            <div class="form-group col-md-5 mb-0">
+              {{ form.covid19|as_crispy_field }}
+              {{ form.covid19D|as_crispy_field }}
+            </div>
+        </div>
+        
+	  	<button name="save" type="submit" class="btn btn-lg btn-block" style="background-image:linear-gradient(to left, transparent, #1f7a82 49%, #1f7a82 51%, transparent);"><div class="text-white" style="opacity:0.7;">Save</div></button>
+	</form>
+
+{% endblock %}

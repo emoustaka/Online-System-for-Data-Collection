@@ -1,0 +1,115 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block header %}
+	<div class="row justify-content-center m-0">
+        <div class="text m-0 p-0">
+            <img src="{% static 'main/OSDC.png' %}" alt="LOGO" style="max-height: 45vh; max-widht: 90vw; margin-top: 12vh;">
+        </div>
+    </div>
+	<div class="row justify-content-center m-0">
+        <div class="text m-0 p-0">
+            <p class="text-white font-weight-light" style="font-size:4vw;"><b>O</b>nline <b>S</b>ystem for <b>P</b>ersonal <b>H</b>ealth <b>D</b>ata <b>M</b>anagement</p>
+            <p class="text-white font-weight-light" style="font-size:2vw;">special support for Tuberculosis incidents</p>
+        </div>
+    </div>
+    <div class="row justify-content-center m-0">
+        <div class="col-8">
+            <a href="#main" class="btn btn-lg btn-block" style="background-color:transparent;"><div class="text-white" style="opacity:0.7;">learn more</div></a>
+        </div>
+    </div>
+{% endblock %}
+
+{% block hr %}
+    none
+{% endblock %}
+
+{% block home %}
+
+        <div class="row justify-content-center m-1 container" style="margin-left:0px; margin-right:0px;">
+            <div  class="col-img">
+                <img src="{% static 'main/home1.png' %}" alt="home1">
+            </div>  
+            <div  class="col-text">
+                <div class="text text-white">
+                    <p>
+                        <img src="{% static 'main/OSDC.png' %}" alt="OSDC" style="width:80px; margin-top: -10px;">
+                        <b style="font-size: 40px;">Online System for Personal Health Data Management</b>
+                        <br><br>
+                        Store and access your healthcare data in one secure place.
+                        <br>
+                        Store all the necessary data. Access your data anytime, anywhere from your desctop and mobile devices.
+                    </p>
+                </div>
+            </div>  
+        </div>
+        <div class="col-12 row justify-content-center">
+            <hr>
+        </div>
+        <div class="row justify-content-center m-1 container" style="margin-left:0px; margin-right:0px;">
+            <div  class="col-text">
+                <div class="text text-white">
+                    <p>
+                        <b style="font-size: 40px;">Your privacy comes first</b>
+                        <br><br>
+                        As the internet grows and changes, OSDC focus on your right to privacy.
+                        <br>
+                        Keep it simple. Keep it safe.
+                        <br>
+                        Your data online is protected.
+                    </p>
+                </div>
+            </div>  
+            <div  class="col-img">
+                <img src="{% static 'main/home2.png' %}" alt="home2">
+            </div>  
+        </div>
+        <div class="col-12 row justify-content-center">
+            <hr>
+        </div>
+        <div class="row justify-content-center m-1 container" style="margin-left:0px; margin-right:0px;">
+            <div  class="col-img">
+                <img src="{% static 'main/home3.png' %}" alt="home3">
+            </div>  
+            <div  class="col-text">
+                <div class="text text-white">
+                    <p>
+                        <b style="font-size: 40px;">Reliable tech for staying healthy</b>
+                        <br><br>
+                        All your healthcare data and your doctor's advices are now just a click away.
+                    </p>
+                </div>
+            </div>  
+        </div>
+        <div class="col-12 row justify-content-center">
+            <hr>
+        </div>
+        <div class="row justify-content-center m-1 container" style="margin-left:0px; margin-right:0px;">
+            <div  class="col-text">
+                <div class="text text-white">
+                    <p>
+                        <b style="font-size: 40px;">Yoy haaven't been registered yet?
+                        <br>
+                        Make your registration today, it’s easy.</b>
+                        <br><br>
+                        If you need help, contact us for technical support
+                        <a href="/register" class="btn btn-lg btn-block text-white" style="background-image:linear-gradient(to left, transparent, #1f7a82 49%, #1f7a82 51%, transparent);">Sign up</a>
+                    </p>
+                </div>  
+            </div>  
+        </div>
+
+{% endblock %}
+
+
+ {% block blank%}
+	block
+ {% endblock %}
+
+ {% block hr-padding %}
+    10vh
+ {% endblock %}

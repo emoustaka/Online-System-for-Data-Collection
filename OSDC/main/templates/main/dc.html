@@ -1,0 +1,76 @@
+{% extends 'main/edit.html' %}
+
+{% block title %}
+Doctor's Comments
+{% endblock %}
+
+{% load crispy_forms_tags %}
+
+    {% block header %}
+        <h1 class="text-white" style="opacity: 0.8;">Doctor's Comments</h1>
+    {% endblock %}
+
+
+{% block content %}
+
+	<form method="post" action="/dc/" class="text-white">
+        {% csrf_token %}
+        
+        <div class="form-row">
+            <div class="form-group col-md-6 mb-0">
+              {{ form.general|as_crispy_field }}
+            </div>
+            <div class="form-group col-md-6 mb-0">
+              {{ form.hearing|as_crispy_field }}
+            </div>
+        </div>
+        
+        <div class="form-row">
+            <div class="form-group col-md-6 mb-0">
+              {{ form.vision|as_crispy_field }}
+            </div>
+            <div class="form-group col-md-6 mb-0">
+              {{ form.respiratoryTract|as_crispy_field }}
+            </div>
+        </div>
+        
+        <div class="form-row">
+            <div class="form-group col-md-6 mb-0">
+              {{ form.heart|as_crispy_field }}
+            </div>
+            <div class="form-group col-md-6 mb-0">
+              {{ form.chest|as_crispy_field }}
+            </div>
+        </div>
+        
+        <div class="form-row">
+            <div class="form-group col-md-6 mb-0">
+              {{ form.lungs|as_crispy_field }}
+            </div>
+            <div class="form-group col-md-6 mb-0">
+              {{ form.abdomen|as_crispy_field }}
+            </div>
+        </div>
+        
+        <div class="form-row">
+            <div class="form-group col-md-6 mb-0">
+              {{ form.myoskeleticalSystem|as_crispy_field }}
+            </div>
+            <div class="form-group col-md-6 mb-0">
+              {{ form.limbs|as_crispy_field }}
+            </div>
+        </div>
+        
+        <div class="form-row">
+            <div class="form-group col-md-6 mb-0">
+              {{ form.skin|as_crispy_field }}
+            </div>
+            <div class="form-group col-md-6 mb-0">
+              {{ form.nervousSystem|as_crispy_field }}
+            </div>
+        </div>
+
+	  	<button name="save" type="submit" class="btn btn-lg btn-block" style="background-image:linear-gradient(to left, transparent, #1f7a82 49%, #1f7a82 51%, transparent);"><div class="text-white" style="opacity:0.7;">Save</div></button>
+	</form>
+
+{% endblock %}

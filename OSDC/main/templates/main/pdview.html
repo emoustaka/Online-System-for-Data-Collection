@@ -1,0 +1,69 @@
+{% extends 'main/view.html' %}
+{% load static %}
+
+{% block title %}
+Personal Data
+{% endblock %}
+
+{% block header %}
+    <h1 class="text-white" style="opacity: 0.8;">Personal Data</h1>
+{% endblock %}
+
+
+{% block info %}
+
+
+    <div class="text">
+         <p>Here will be presented all your personal data, if you are registered in the platform.</p>
+    </div>
+
+{% endblock %}
+
+{% block content %}
+				{% if current_user.personaldata.all %}
+					{% for pd in current_user.personaldata.all %}
+						<p>Last Name: {{pd.lastName}}</p>
+						<hr>
+						<p>Fiirst Name: {{pd.firstName}}</p>
+						<hr>
+						<p>Gender: {{pd.gender}}</p>
+						<hr>
+						<p>Birth Date: {{pd.dateOfBirth}}</p>
+						<hr>
+						<p>Telephone: {{pd.telephone}}</p>
+						<hr>
+						<p>Email address: {{pd.email}}</p>
+						<hr>
+						<p>Family Situation: {{pd.familySituation}}</p>
+						<hr>
+						<p>Nationality: {{pd.nationality}}</p>
+						<hr>
+						<p>Race: {{pd.race}}</p>
+						<hr>
+						<p>Spoken languages: {{pd.language}}</p>
+						<hr>
+						<p>Occupation: {{pd.occupation}}</p>
+						<hr>
+						<p>Education: {{pd.education}}</p>
+						<hr>
+						<p>Health Insurance: {{pd.healthInsurance}}</p>
+					{% endfor %}
+				{% else %}
+					<div class="row justify-content-center">
+						<p>Here will be presented all your personal data.</p>
+					</div>
+				{% endif %}
+{% endblock %}
+
+{% block image %}
+	url('{% static 'main/PDmt.png' %}')
+{% endblock %}
+
+{% block button %}
+	Edit Personal Data
+{% endblock %}
+
+{% block link %}
+	/pd
+{% endblock %}
+ 

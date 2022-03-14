@@ -1,0 +1,53 @@
+{% extends 'main/view.html' %}
+{% load static %}
+
+{% block title %}
+Tuberculosis
+{% endblock %}
+
+{% block header %}
+    <h1 class="text-white" style="opacity: 0.8;">Tuberculosis</h1>
+{% endblock %}
+
+
+{% block info %}
+
+
+    <div class="text">
+         <p>Here will be presented your data about Tuberculosis, if you are registered in the platform.</p>
+    </div>
+
+{% endblock %}
+
+{% block content %}
+			{% if current_user.tuberculosis.all %}
+				{% for t in current_user.tuberculosis.all %}
+					<p>Diagnosed with active or latend TB: {{t.typeOfTB}}</p>
+                    <hr>
+					<p>Vaccinatede against TB (When did the vaccination happen?): {{t.vaccinationForTB}}</p>
+                    <hr>
+					<p>Antibiotic consumption (What kind? For how long?: {{t.antibioticConsumption}}</p>
+                    <hr>
+					<p>Family member of close person diagnosed with TB?: {{t.numberOfPeopleWithTB}}</p>
+                    <hr>
+					<p>Type of TB diagnostic method undertaken: {{t.diagnosticMethodUndertaken}}</p>
+                    <hr>
+				{% endfor %}
+			{% else %}
+				<div class="row justify-content-center">
+					<p>Here will be presented all your tuberculosis data.</p>
+				</div>
+			{% endif %}
+{% endblock %}
+
+{% block image %}
+	url('{% static 'main/Tmt.png' %}')
+{% endblock %}
+
+{% block button %}
+	Edit Tuberculosis
+{% endblock %}
+
+{% block link %}
+	/t
+{% endblock %}

@@ -1,0 +1,78 @@
+{% extends 'main/edit.html' %}
+{% load static %}
+
+{% block title %}
+Product guide
+{% endblock %}
+
+{% block header %}
+    <h1 class="text-white" style="opacity: 0.8;">Product guide</h1>
+{% endblock %}
+
+
+{% block content %}
+
+    <div class="text">
+
+        <br>
+
+        <h5 class="text-white" style="opacity: 0.8; text-align: justify;">ODYSSEE is a rapid and reliable test for early diagnosis of Tuberculosis and several diseases in field.
+        This test aims at identifying specific gene fragments appeared in the patient's urine. It includes two simple steps; amplification and cell-free transcription/traslation.
+        The results will be indicated as a color change from yellow to red and available in a few hours.</h5>
+        
+        <br>
+
+        <h3 class="text-white" style="opacity: 0.8;">Test Components & Storage</h3>
+
+        <p class="text-white" style="opacity: 0.8; text-align: justify;">Below, you can find all test components and storage temperatures. A detailed protocol and an index card are included with the product.</p>
+        <p class="text-white" style="opacity: 0.8;">PINAKAS</p>
+        <p class="text-white" style="opacity: 0.8; text-align: justify;">The product contains 10 tests. Each test is composed by Tube XA and Tube XB. "X" stands for the number each test from 1-10 as indicated in the index card. e.g. For test no1 you will use tubes 1A & 1B</p>
+        
+        <br>
+
+        <h3 class="text-white" style="opacity: 0.8;">Safety & Responsible use</h3>
+
+        <p class="text-white" style="opacity: 0.8; text-align: justify;">ODYSSEE is completely safe to both the end-user and the environment as it is based on a cell-free system and does not require for a living organism to carry out the reactions.
+        In addition, the biological sample (urine) does not contain mycobacteria but only it's DNA fragments and the reagents are not harmful.
+        However, we recommend using gloves during the execution of the test and disposing Tube XA & Tube XB in a biohazard waste bin.</p>
+        <p class="text-white" style="opacity: 0.8; text-align: justify;">ODYSSEE is a triage test and not confirmatory. In such way, after its execution further examination is needed.
+        Finally, we advise against antibiotic consumption before undertaking the test.</p>
+
+        <br>
+
+        <h3 class="text-white" style="opacity: 0.8;">Instuctions Scheme</h3>
+
+        <p class="text-white" style="opacity: 0.8; text-align: justify;">EIKINA</p>
+
+        <br>
+
+        <h3 class="text-white" style="opacity: 0.8;">Instuctions for use</h3>
+
+        <p class="text-white" style="opacity: 0.8; text-align: justify;">1. Collect the uribe sample into a Urine Collection Cup</p>
+        <p class="text-white" style="opacity: 0.8; text-align: justify;">2. Turn on the heater device (42<span>&#8451;</span>)</p>
+        <p class="text-white" style="opacity: 0.8; text-align: justify;">3. Take the Pasteur pipette and transfer 1ml of urine sample into Tube XA</p>
+        <p class="text-white" style="opacity: 0.8; text-align: justify;">4. Add one drop of Reagent A in Tube XA</p>
+        <p class="text-white" style="opacity: 0.8; text-align: justify;">5. Place tube XA in the heater and let the reaction incubate for 5 minutes</p>
+        <p class="text-white" style="opacity: 0.8; text-align: justify;">6. Use the centrifuge by putting the tube at the positions, respectively, and centrifuge untile the liquid divides into two phases</p>
+        <p class="text-white" style="opacity: 0.8; text-align: justify;">7. Discard the supermatant (upper phase of the liquid) and transfer the remaining liquid with the 0,5ml syringe into the Tube XB</p>
+        <p class="text-white" style="opacity: 0.8; text-align: justify;">8. Place Tube XB and let the reaction incubate for 3 hours</p>
+        <p class="text-white" style="opacity: 0.8; text-align: justify;">9. Add one drop of Reagent B in Tube XB</p>
+        <p class="text-white" style="opacity: 0.8; text-align: justify;">10. Wait for approximately 5 minutes in order to observe a change in color
+        <br>-If there is no color change (yellow) then the patient has not been infected by <i>Mycobacterium tuberculosis</i>
+        <br>-If you observe a color change from yellow to red, the patient is infected by <i>Mycobacterium tuberculosis</i> and you need to reach to the nearest hospital for further examination</p>
+
+        <br>
+
+        <video width="100%" controls>
+            <source src="{% static 'main/product_guide.mp4' %}" type="video/mp4">
+        </video>
+
+    </div>
+
+
+{% endblock %}
+
+
+{% block image %}
+	url('{% static 'main/birdt.png' %}')
+{% endblock %}

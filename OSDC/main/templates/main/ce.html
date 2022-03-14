@@ -1,0 +1,71 @@
+{% extends 'main/edit.html' %}
+
+{% block title %}
+Clinical Examination
+{% endblock %}
+
+{% load crispy_forms_tags %}
+
+    {% block header %}
+        <h1 class="text-white" style="opacity: 0.8;">Clinical Examination</h1>
+    {% endblock %}
+
+{% block content %}
+
+	<form method="post" action="/ce/" class="text-white">
+        {% csrf_token %}
+        
+        <div class="form-row">
+            <div class="form-group col-md-6 mb-0">
+              {{ form.height|as_crispy_field }}
+            </div>
+            <div class="form-group col-md-6 mb-0">
+              {{ form.weight|as_crispy_field }}
+            </div>
+        </div>
+        
+        
+        <div class="form-row">
+            <div class="form-group col-md-6 mb-0">
+              {{ form.weistline|as_crispy_field }}
+            </div>
+            <div class="form-group col-md-6 mb-0">
+              {{ form.bmi|as_crispy_field }}
+            </div>
+        </div>
+        
+        
+        <div class="form-row">
+            <div class="form-group col-md-6 mb-0">
+              {{ form.systolic|as_crispy_field }}
+            </div>
+            <div class="form-group col-md-6 mb-0">
+              {{ form.diastolic|as_crispy_field }}
+            </div>
+        </div>
+        
+        
+        <div class="form-row">
+            <div class="form-group col-md-6 mb-0">
+              {{ form.pulse|as_crispy_field }}
+            </div>
+            <div class="form-group col-md-6 mb-0">
+              {{ form.respiratoryRythm|as_crispy_field }}
+            </div>
+        </div>
+        
+        
+        <div class="form-row">
+            <div class="form-group col-md-6 mb-0">
+              {{ form.temperature|as_crispy_field }}
+            </div>
+            <div class="form-group col-md-6 mb-0">
+              {{ form.hospital|as_crispy_field }}
+            </div>
+        </div>
+        
+	  	<button name="save" type="submit" class="btn btn-lg btn-block" style="background-image:linear-gradient(to left, transparent, #1f7a82 49%, #1f7a82 51%, transparent);"><div class="text-white" style="opacity:0.7;">Save</div></button>
+	</form>
+
+{% endblock %}
+ 

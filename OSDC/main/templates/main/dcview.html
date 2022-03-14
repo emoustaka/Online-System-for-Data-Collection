@@ -1,0 +1,67 @@
+{% extends 'main/view.html' %}
+{% load static %}
+
+{% block title %}
+Doctor's Comments
+{% endblock %}
+
+{% block header %}
+    <h1 class="text-white" style="opacity: 0.8;">Doctor's Comments</h1>
+{% endblock %}
+
+
+{% block info %}
+
+
+    <div class="text">
+         <p>Here will be presented your doctor's comments, if you are registered in the platform.</p>
+    </div>
+
+{% endblock %}
+
+{% block content %}
+			{% if current_user.doctorscomments.all %}
+				{% for dc in current_user.doctorscomments.all %}
+					<p>General condition and diet: {{dc.general}}</p>
+                    <hr>
+					<p>Hearing: {{dc.hearing}}</p>
+                    <hr>
+					<p>Vision: {{dc.vision}}</p>
+                    <hr>
+					<p>Nose, mouth, throat: {{dc.respiratoryTract}}</p>
+                    <hr>
+					<p>Heart: {{dc.heart}}</p>
+                    <hr>
+					<p>Chest: {{dc.chest}}</p>
+                    <hr>
+					<p>Lungs: {{dc.lungs}}</p>
+                    <hr>
+					<p>Abdomen: {{dc.abdomen}}</p>
+                    <hr>
+					<p>Limbs: {{dc.limbs}}</p>
+                    <hr>
+					<p>Myoskeletical system: {{dc.myoskeleticalSystem}}</p>
+                    <hr>
+					<p>Skin: {{dc.skin}}</p>
+                    <hr>
+					<p>Nervous system: {{dc.nervousSystem}}</p>
+				{% endfor %}
+			{% else %}
+				<div class="row justify-content-center">
+					<p>Here will be presented all your doctor's comments.</p>
+				</div>
+			{% endif %}
+
+{% endblock %}
+
+{% block image %}
+	url('{% static 'main/DCmt.png' %}')
+{% endblock %}
+
+{% block button %}
+	Edit Doctor's Comments
+{% endblock %}
+
+{% block link %}
+	/dc
+{% endblock %}

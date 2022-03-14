@@ -1,0 +1,41 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block title %}
+Home
+{% endblock %}
+
+
+{% block hr %}
+    none
+{% endblock %}
+
+{% block home %}
+
+        <div class="row justify-content-center m-1 container" style="margin-left:0px; margin-right:0px;">
+            <div class="row">
+                <div clas="col-sm-12">
+                    <h1>type of TB</h1>
+                    <p>active: {{active}}</p>
+                    <p>latend: {{latend}}</p>
+                    <h1>Vaccination for TB</h1>
+                    <p>true: {{trueV}}</p>
+                    <p>false: {{falseV}}</p>
+                    <h1>Antybiotic consumption</h1>
+                    <p>true: {{trueA}}</p>
+                    <p>false: {{falseA}}</p>
+                </div>
+            </div>
+        </div>
+
+
+{% endblock %}
+
+
+ {% block blank%}
+	block
+ {% endblock %}
+
+ {% block hr-padding %}
+    10vh
+ {% endblock %}
+

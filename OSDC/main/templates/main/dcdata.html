@@ -1,0 +1,593 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Clinical Examination data
+{% endblock %}
+
+{% block header %}
+    <h1 class="text-white" style="opacity: 0.8;">Doctor's Comments data</h1>
+{% endblock %}
+
+ {% block blank%}
+	none
+ {% endblock %}
+
+{% block hr %}
+    block
+{% endblock %}
+ 
+ {% block hr-padding %}
+    0vh
+ {% endblock %}
+
+{% block home %}
+    <div class="col-2 p-0" style="background-image:linear-gradient(to left, transparent, #1f7a82);">
+    </div>
+
+	<div  class="col-8 text-left pt-4 pb-4">
+        <div class="row justify-content-center m-1 container" style="margin-left:0px; margin-right:0px; min-height:20px;">
+
+            <div class="col-12 text-white">
+                <h4 class="row text-white" style="opacity: 0.8;">General condition and diet</h4>
+                <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+            </div>
+
+            <hr>
+
+            
+            <div class="col-12 text-white">
+                <h4 class="text-white" style="opacity: 0.8;">Hearing</h4>
+                <div id="chartContainer1" style="height: 300px; width: 100%;"></div>
+            </div>
+
+            <hr>
+
+            <div class="col-12 text-white">
+                <h4 class="text-white" style="opacity: 0.8;">Vision</h4>
+                <div id="chartContainer2" style="height: 300px; width: 100%;"></div>
+            </div>
+
+            <hr>
+
+            <div class="col-12 text-white">
+                <h4 class="text-white" style="opacity: 0.8;">Nose, mouth, throat</h4>
+                <div id="chartContainer3" style="height: 300px; width: 100%;"></div>
+            </div>
+
+            <hr>
+
+            <div class="col-12 text-white">
+                <h4 class="text-white" style="opacity: 0.8;">Heart</h4>
+                <div id="chartContainer4" style="height: 300px; width: 100%;"></div>
+            </div>
+
+            <hr>
+
+            <div class="col-12 text-white">
+                <h4 class="text-white" style="opacity: 0.8;">Chest</h4>
+                <div id="chartContainer5" style="height: 300px; width: 100%;"></div>
+            </div>
+
+            <hr>
+
+            <div class="col-12 text-white">
+                <h4 class="text-white" style="opacity: 0.8;">Lungs</h4>
+                <div id="chartContainer6" style="height: 300px; width: 100%;"></div>
+            </div>
+
+            <hr>
+
+            <div class="col-12 text-white">
+                <h4 class="text-white" style="opacity: 0.8;">Abdomen</h4>
+                <div id="chartContainer7" style="height: 300px; width: 100%;"></div>
+            </div>
+
+            <hr>
+
+            <div class="col-12 text-white">
+                <h4 class="text-white" style="opacity: 0.8;">Limbs</h4>
+                <div id="chartContainer8" style="height: 300px; width: 100%;"></div>
+            </div>
+
+            <hr>
+
+            <div class="col-12 text-white">
+                <h4 class="text-white" style="opacity: 0.8;">Myoskeletical system</h4>
+                <div id="chartContainer9" style="height: 300px; width: 100%;"></div>
+            </div>
+
+            <hr>
+
+            <div class="col-12 text-white">
+                <h4 class="text-white" style="opacity: 0.8;">Skin</h4>
+                <div id="chartContainer10" style="height: 300px; width: 100%;"></div>
+            </div>
+
+            <hr>
+
+            <div class="col-12 text-white">
+                <h4 class="text-white" style="opacity: 0.8;">Nervous system</h4>
+                <div id="chartContainer11" style="height: 300px; width: 100%;"></div>
+            </div>
+
+            <hr>
+
+        </div>
+
+    </div>
+
+    <div class="col-2 p-0" style=" background: linear-gradient(to right, transparent, #1f7a82);">
+    </div>
+<!--custom tooltip container
+<div id="chart-tooltip"></div>-->
+{%endblock%}
+
+{%block script%}
+
+
+  <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+<script type="text/javascript">
+    window.onload = function () {
+        
+        var chart = new CanvasJS.Chart("chartContainer",
+            {
+                title:{
+                    text: " ",
+                    fontFamily: "Segoe UI",
+                    fontWeight: "bold",
+                    fontColor: "white"
+                },
+                backgroundColor: "transparent",
+                legend:{
+                    verticalAlign: "bottom",
+                    horizontalAlign: "center",
+                    fontColor: "white"
+                },
+                data: [
+                {
+                    startAngle: 45,
+                    indexLabelFontSize: 12,
+                    indexLabelFontFamily: "Segoe UI",
+                    indexLabelFontColor: "white",
+                    indexLabelLineColor: "white",
+                    indexLabelPlacement: "outside",
+                    type: "doughnut",
+                    showInLegend: true,
+                    toolTipContent: "{name}: <strong>(#percent%)</strong>",
+                    indexLabel: "{name} -  #percent%",
+                    dataPoints: [
+                    {  y: {{general1}}, name:"Excelent", color: "#f9cf91"},
+                    {  y: {{general2}}, name:"Moderate", color: "#787195" },
+                    {  y: {{general3}}, name:"Critical", color: "#f2b762" },
+                    {  y: {{general4}}, name:"Urgent", color: "#343565" }
+                    ],
+                }]
+            }
+        );
+
+        chart.render();
+        
+        var chart1 = new CanvasJS.Chart("chartContainer1",
+            {
+                title:{
+                    text: " ",
+                    fontFamily: "Segoe UI",
+                    fontWeight: "bold",
+                    fontColor: "white"
+                },
+                backgroundColor: "transparent",
+                legend:{
+                    verticalAlign: "bottom",
+                    horizontalAlign: "center",
+                    fontColor: "white"
+                },
+                data: [
+                {
+                    startAngle: 45,
+                    indexLabelFontSize: 12,
+                    indexLabelFontFamily: "Segoe UI",
+                    indexLabelFontColor: "white",
+                    indexLabelLineColor: "white",
+                    indexLabelPlacement: "outside",
+                    type: "doughnut",
+                    showInLegend: true,
+                    toolTipContent: "{name}: <strong>(#percent%)</strong>",
+                    indexLabel: "{name} -  #percent%",
+                    dataPoints: [
+                    {  y: {{hearing1}}, name:"Excelent", color: "#f9cf91"},
+                    {  y: {{hearing2}}, name:"Moderate", color: "#787195" },
+                    {  y: {{hearing3}}, name:"Critical", color: "#f2b762" },
+                    {  y: {{hearing4}}, name:"Urgent", color: "#343565" }
+                    ],
+                }]
+            }
+        );
+
+        chart1.render();
+        
+        var chart2 = new CanvasJS.Chart("chartContainer2",
+            {
+                title:{
+                    text: " ",
+                    fontFamily: "Segoe UI",
+                    fontWeight: "bold",
+                    fontColor: "white"
+                },
+                backgroundColor: "transparent",
+                legend:{
+                    verticalAlign: "bottom",
+                    horizontalAlign: "center",
+                    fontColor: "white"
+                },
+                data: [
+                {
+                    startAngle: 45,
+                    indexLabelFontSize: 12,
+                    indexLabelFontFamily: "Segoe UI",
+                    indexLabelFontColor: "white",
+                    indexLabelLineColor: "white",
+                    indexLabelPlacement: "outside",
+                    type: "doughnut",
+                    showInLegend: true,
+                    toolTipContent: "{name}: <strong>(#percent%)</strong>",
+                    indexLabel: "{name} -  #percent%",
+                    dataPoints: [
+                    {  y: {{vision1}}, name:"Excelent", color: "#f9cf91"},
+                    {  y: {{vision2}}, name:"Moderate", color: "#787195" },
+                    {  y: {{vision3}}, name:"Critical", color: "#f2b762" },
+                    {  y: {{vision4}}, name:"Urgent", color: "#343565" }
+                    ],
+                }]
+            }
+        );
+
+        chart2.render();
+        
+        var chart3 = new CanvasJS.Chart("chartContainer3",
+            {
+                title:{
+                    text: " ",
+                    fontFamily: "Segoe UI",
+                    fontWeight: "bold",
+                    fontColor: "white"
+                },
+                backgroundColor: "transparent",
+                legend:{
+                    verticalAlign: "bottom",
+                    horizontalAlign: "center",
+                    fontColor: "white"
+                },
+                data: [
+                {
+                    startAngle: 45,
+                    indexLabelFontSize: 12,
+                    indexLabelFontFamily: "Segoe UI",
+                    indexLabelFontColor: "white",
+                    indexLabelLineColor: "white",
+                    indexLabelPlacement: "outside",
+                    type: "doughnut",
+                    showInLegend: true,
+                    toolTipContent: "{name}: <strong>(#percent%)</strong>",
+                    indexLabel: "{name} -  #percent%",
+                    dataPoints: [
+                    {  y: {{respiratoryTract1}}, name:"Excelent", color: "#f9cf91"},
+                    {  y: {{respiratoryTract2}}, name:"Moderate", color: "#787195" },
+                    {  y: {{respiratoryTract3}}, name:"Critical", color: "#f2b762" },
+                    {  y: {{respiratoryTract4}}, name:"Urgent", color: "#343565" }
+                    ],
+                }]
+            }
+        );
+
+        chart3.render();
+        
+        var chart4 = new CanvasJS.Chart("chartContainer4",
+            {
+                title:{
+                    text: " ",
+                    fontFamily: "Segoe UI",
+                    fontWeight: "bold",
+                    fontColor: "white"
+                },
+                backgroundColor: "transparent",
+                legend:{
+                    verticalAlign: "bottom",
+                    horizontalAlign: "center",
+                    fontColor: "white"
+                },
+                data: [
+                {
+                    startAngle: 45,
+                    indexLabelFontSize: 12,
+                    indexLabelFontFamily: "Segoe UI",
+                    indexLabelFontColor: "white",
+                    indexLabelLineColor: "white",
+                    indexLabelPlacement: "outside",
+                    type: "doughnut",
+                    showInLegend: true,
+                    toolTipContent: "{name}: <strong>(#percent%)</strong>",
+                    indexLabel: "{name} -  #percent%",
+                    dataPoints: [
+                    {  y: {{heart1}}, name:"Excelent", color: "#f9cf91"},
+                    {  y: {{heart2}}, name:"Moderate", color: "#787195" },
+                    {  y: {{heart3}}, name:"Critical", color: "#f2b762" },
+                    {  y: {{heart4}}, name:"Urgent", color: "#343565" }
+                    ],
+                }]
+            }
+        );
+
+        chart4.render();
+        
+        var chart5 = new CanvasJS.Chart("chartContainer5",
+            {
+                title:{
+                    text: " ",
+                    fontFamily: "Segoe UI",
+                    fontWeight: "bold",
+                    fontColor: "white"
+                },
+                backgroundColor: "transparent",
+                legend:{
+                    verticalAlign: "bottom",
+                    horizontalAlign: "center",
+                    fontColor: "white"
+                },
+                data: [
+                {
+                    startAngle: 45,
+                    indexLabelFontSize: 12,
+                    indexLabelFontFamily: "Segoe UI",
+                    indexLabelFontColor: "white",
+                    indexLabelLineColor: "white",
+                    indexLabelPlacement: "outside",
+                    type: "doughnut",
+                    showInLegend: true,
+                    toolTipContent: "{name}: <strong>(#percent%)</strong>",
+                    indexLabel: "{name} -  #percent%",
+                    dataPoints: [
+                    {  y: {{chest1}}, name:"Excelent", color: "#f9cf91"},
+                    {  y: {{chest2}}, name:"Moderate", color: "#787195" },
+                    {  y: {{chest3}}, name:"Critical", color: "#f2b762" },
+                    {  y: {{chest4}}, name:"Urgent", color: "#343565" }
+                    ],
+                }]
+            }
+        );
+
+        chart5.render();
+        
+        var chart6 = new CanvasJS.Chart("chartContainer6",
+            {
+                title:{
+                    text: " ",
+                    fontFamily: "Segoe UI",
+                    fontWeight: "bold",
+                    fontColor: "white"
+                },
+                backgroundColor: "transparent",
+                legend:{
+                    verticalAlign: "bottom",
+                    horizontalAlign: "center",
+                    fontColor: "white"
+                },
+                data: [
+                {
+                    startAngle: 45,
+                    indexLabelFontSize: 12,
+                    indexLabelFontFamily: "Segoe UI",
+                    indexLabelFontColor: "white",
+                    indexLabelLineColor: "white",
+                    indexLabelPlacement: "outside",
+                    type: "doughnut",
+                    showInLegend: true,
+                    toolTipContent: "{name}: <strong>(#percent%)</strong>",
+                    indexLabel: "{name} -  #percent%",
+                    dataPoints: [
+                    {  y: {{lungs1}}, name:"Excelent", color: "#f9cf91"},
+                    {  y: {{lungs2}}, name:"Moderate", color: "#787195" },
+                    {  y: {{lungs3}}, name:"Critical", color: "#f2b762" },
+                    {  y: {{lungs4}}, name:"Urgent", color: "#343565" }
+                    ],
+                }]
+            }
+        );
+
+        chart6.render();
+        
+        var chart7 = new CanvasJS.Chart("chartContainer7",
+            {
+                title:{
+                    text: " ",
+                    fontFamily: "Segoe UI",
+                    fontWeight: "bold",
+                    fontColor: "white"
+                },
+                backgroundColor: "transparent",
+                legend:{
+                    verticalAlign: "bottom",
+                    horizontalAlign: "center",
+                    fontColor: "white"
+                },
+                data: [
+                {
+                    startAngle: 45,
+                    indexLabelFontSize: 12,
+                    indexLabelFontFamily: "Segoe UI",
+                    indexLabelFontColor: "white",
+                    indexLabelLineColor: "white",
+                    indexLabelPlacement: "outside",
+                    type: "doughnut",
+                    showInLegend: true,
+                    toolTipContent: "{name}: <strong>(#percent%)</strong>",
+                    indexLabel: "{name} -  #percent%",
+                    dataPoints: [
+                    {  y: {{abdomen1}}, name:"Excelent", color: "#f9cf91"},
+                    {  y: {{abdomen2}}, name:"Moderate", color: "#787195" },
+                    {  y: {{abdomen3}}, name:"Critical", color: "#f2b762" },
+                    {  y: {{abdomen4}}, name:"Urgent", color: "#343565" }
+                    ],
+                }]
+            }
+        );
+
+        chart7.render();
+        
+        var chart8 = new CanvasJS.Chart("chartContainer8",
+            {
+                title:{
+                    text: " ",
+                    fontFamily: "Segoe UI",
+                    fontWeight: "bold",
+                    fontColor: "white"
+                },
+                backgroundColor: "transparent",
+                legend:{
+                    verticalAlign: "bottom",
+                    horizontalAlign: "center",
+                    fontColor: "white"
+                },
+                data: [
+                {
+                    startAngle: 45,
+                    indexLabelFontSize: 12,
+                    indexLabelFontFamily: "Segoe UI",
+                    indexLabelFontColor: "white",
+                    indexLabelLineColor: "white",
+                    indexLabelPlacement: "outside",
+                    type: "doughnut",
+                    showInLegend: true,
+                    toolTipContent: "{name}: <strong>(#percent%)</strong>",
+                    indexLabel: "{name} -  #percent%",
+                    dataPoints: [
+                    {  y: {{myoskeleticalSystem1}}, name:"Excelent", color: "#f9cf91"},
+                    {  y: {{myoskeleticalSystem2}}, name:"Moderate", color: "#787195" },
+                    {  y: {{myoskeleticalSystem3}}, name:"Critical", color: "#f2b762" },
+                    {  y: {{myoskeleticalSystem4}}, name:"Urgent", color: "#343565" }
+                    ],
+                }]
+            }
+        );
+
+        chart8.render();
+        
+        var chart9 = new CanvasJS.Chart("chartContainer9",
+            {
+                title:{
+                    text: " ",
+                    fontFamily: "Segoe UI",
+                    fontWeight: "bold",
+                    fontColor: "white"
+                },
+                backgroundColor: "transparent",
+                legend:{
+                    verticalAlign: "bottom",
+                    horizontalAlign: "center",
+                    fontColor: "white"
+                },
+                data: [
+                {
+                    startAngle: 45,
+                    indexLabelFontSize: 12,
+                    indexLabelFontFamily: "Segoe UI",
+                    indexLabelFontColor: "white",
+                    indexLabelLineColor: "white",
+                    indexLabelPlacement: "outside",
+                    type: "doughnut",
+                    showInLegend: true,
+                    toolTipContent: "{name}: <strong>(#percent%)</strong>",
+                    indexLabel: "{name} -  #percent%",
+                    dataPoints: [
+                    {  y: {{limbs1}}, name:"Excelent", color: "#f9cf91"},
+                    {  y: {{limbs2}}, name:"Moderate", color: "#787195" },
+                    {  y: {{limbs3}}, name:"Critical", color: "#f2b762" },
+                    {  y: {{limbs4}}, name:"Urgent", color: "#343565" }
+                    ],
+                }]
+            }
+        );
+
+        chart9.render();
+        
+        var chart10 = new CanvasJS.Chart("chartContainer10",
+            {
+                title:{
+                    text: " ",
+                    fontFamily: "Segoe UI",
+                    fontWeight: "bold",
+                    fontColor: "white"
+                },
+                backgroundColor: "transparent",
+                legend:{
+                    verticalAlign: "bottom",
+                    horizontalAlign: "center",
+                    fontColor: "white"
+                },
+                data: [
+                {
+                    startAngle: 45,
+                    indexLabelFontSize: 12,
+                    indexLabelFontFamily: "Segoe UI",
+                    indexLabelFontColor: "white",
+                    indexLabelLineColor: "white",
+                    indexLabelPlacement: "outside",
+                    type: "doughnut",
+                    showInLegend: true,
+                    toolTipContent: "{name}: <strong>(#percent%)</strong>",
+                    indexLabel: "{name} -  #percent%",
+                    dataPoints: [
+                    {  y: {{skin1}}, name:"Excelent", color: "#f9cf91"},
+                    {  y: {{skin2}}, name:"Moderate", color: "#787195" },
+                    {  y: {{skin3}}, name:"Critical", color: "#f2b762" },
+                    {  y: {{skin4}}, name:"Urgent", color: "#343565" }
+                    ],
+                }]
+            }
+        );
+
+        chart10.render();
+        
+        var chart11 = new CanvasJS.Chart("chartContainer11",
+            {
+                title:{
+                    text: " ",
+                    fontFamily: "Segoe UI",
+                    fontWeight: "bold",
+                    fontColor: "white"
+                },
+                backgroundColor: "transparent",
+                legend:{
+                    verticalAlign: "bottom",
+                    horizontalAlign: "center",
+                    fontColor: "white"
+                },
+                data: [
+                {
+                    startAngle: 45,
+                    indexLabelFontSize: 12,
+                    indexLabelFontFamily: "Segoe UI",
+                    indexLabelFontColor: "white",
+                    indexLabelLineColor: "white",
+                    indexLabelPlacement: "outside",
+                    type: "doughnut",
+                    showInLegend: true,
+                    toolTipContent: "{name}: <strong>(#percent%)</strong>",
+                    indexLabel: "{name} -  #percent%",
+                    dataPoints: [
+                    {  y: {{nervousSystem1}}, name:"Excelent", color: "#f9cf91"},
+                    {  y: {{nervousSystem2}}, name:"Moderate", color: "#787195" },
+                    {  y: {{nervousSystem3}}, name:"Critical", color: "#f2b762" },
+                    {  y: {{nervousSystem4}}, name:"Urgent", color: "#343565" }
+                    ],
+                }]
+            }
+        );
+
+        chart11.render();
+        
+    }
+</script>
+
+
+{%endblock%}

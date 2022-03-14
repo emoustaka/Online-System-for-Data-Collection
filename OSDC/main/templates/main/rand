@@ -1,0 +1,161 @@
+
+
+//canvasEl.on('mousemove',customTooltip);
+// on mouse out just remove tooltip of DOM...
+//canvasEl.on('mouseout', function (event) {
+//    $("#chart-tooltip").css("display", "none");
+//});
+
+
+/**
+ * Custom tooltip to show when mousemove event is trigged
+ *
+ * @param {Object} event The mousemove event
+ */
+function customTooltip(event) {
+    //globals, take care...
+    var segmentData = myDoughnutChart.getSegmentsAtEvent(event),
+            tooltipWidth  = 160.0,
+            tooltipHeight = 90.0,
+            tooltipContainer = $("#chart-tooltip");
+
+    if (segmentData[0] == undefined) {
+       return;
+    }
+    // CSS styles
+    tooltipContainer.css({
+        width: tooltipWidth,
+        height: tooltipHeight,
+        display: "block",
+        /* Set tooltip position is up to you... */
+        top:  (event.clientY + (tooltipHeight/3)) + "px",
+        left: (event.clientX - tooltipWidth/2)    + "px"
+    });
+
+    segmentData = segmentData[0];
+    var data = ( findEntryByLabelAndValue(segmentData.label, segmentData.value, dataset));
+    // Tooltip data
+    var htmlContent = [
+        '<p><strong>TYPE OF TB</strong></p>',
+        '<ul>',
+        '<li> Label: ' + data.label + '</li>',
+        '<li> Velue: ' + data.value + '</li>',
+        '</ul>'
+    ].join('');
+    // render...
+    tooltipContainer.html(htmlContent);
+}
+
+/**
+ * As long as myChart.getSegmentsAtEvent() does not return all keys from dataset,
+ *      we can search an specif dataset entry by "value" and "value" keys.
+ *      In fact, you could provide an unique ID so it would be a lot easier
+ *      to implement (findById(id, dataset)), because you could to search by ID,
+ *      instead of label/value keys together
+ *
+ * @param {string} label The dataset["label"] value
+ * @param {*} value      The dataset["value"] value
+ * @param {Object} dataset The dataset to search in
+ *
+ * @returns {Object} Object or null (if not found data entry)
+ */
+function findEntryByLabelAndValue(label, value, dataset) {
+    var key;
+    for (key in dataset) {
+        if (dataset[key].value == value && dataset[key].label == label) {
+            return dataset[key];
+        }
+    }
+    return null;
+}
+
+
+
+
+
+function example() {
+  const canvas = useRef(null);
+  useEffect(() => {
+    const cfg = {
+      type: 'doughnut',
+      data: {
+        labels: [
+          'Red',
+          'Blue',
+          'Yellow'
+        ],
+        datasets: [{
+          label: 'My First Dataset',
+          data: [300, 50, 100],
+          backgroundColor: [
+            'rgb(255, 99, 132)',
+            'rgb(54, 162, 235)',
+            'rgb(255, 205, 86)'
+          ],
+          hoverOffset: 4
+        }]
+      }
+    };
+    const chart = new Chart(canvas.current.getContext('2d'), cfg);
+    return () => chart.destroy();
+  });
+  return <div className="chartjs-wrapper"><canvas ref={canvas} className="chartjs"></canvas></div>;
+}
+
+
+
+
+<script>
+
+var dataset = [
+    {
+        value: {{active}},
+        color:"#787195",
+        label: "Active",
+    },
+    {
+        value: {{latend}},
+        color: "#f9cf91",
+        label: "Latend",
+    },
+];
+var dataset2 = [
+    {
+        value: {{trueV}},
+        color:"#787195",
+        label: "trueV",
+    },
+    {
+        value: {{falseV}},
+        color: "#f9cf91",
+        label: "falseV",
+    },
+];
+var dataset3 = [
+    {
+        value: {{trueA}},
+        color:"#787195",
+        label: "trueA",
+    },
+    {
+        value: {{falseA}},
+        color: "#f9cf91",
+        label: "falseA",
+    },
+];
+
+
+
+var canvasEl        = $("#myChart");
+var canvasContext   = canvasEl.get(0).getContext("2d");
+var myDoughnutChart = new Chart(canvasContext).Doughnut(dataset, {
+    showTooltips: true
+});
+
+var canvasEl2        = $("#myChart2");
+var canvasContext2   = canvasEl2.get(0).getContext("2d");
+var myDoughnutChart2 = new Chart(canvasContext2).Doughnut(dataset2, {
+    showTooltips: true
+});
+
+</script>

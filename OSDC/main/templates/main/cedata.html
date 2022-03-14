@@ -1,0 +1,305 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Clinical Examination data
+{% endblock %}
+
+{% block header %}
+    <h1 class="text-white" style="opacity: 0.8;">Clinical Examination data</h1>
+{% endblock %}
+
+ {% block blank%}
+	none
+ {% endblock %}
+
+{% block hr %}
+    block
+{% endblock %}
+ 
+ {% block hr-padding %}
+    0vh
+ {% endblock %}
+
+{% block home %}
+    <div class="col-2 p-0" style="background-image:linear-gradient(to left, transparent, #1f7a82);">
+    </div>
+
+	<div  class="col-8 text-left pt-4 pb-4">
+        <div class="row justify-content-center m-1 container" style="margin-left:0px; margin-right:0px; min-height:20px;">
+
+            <div class="col-12 text-white">
+                <h4 class="text text-white" style="opacity: 0.8;">Body Mass Index</h4>
+            </div>
+            <div class="col-12 col-md-7 text-white">
+                <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+            </div>
+
+            <div class="col-12 col-md-5 text-white">
+                <p class="text text-white" style="opacity: 0.8; text-align: justify;">The Body Mass Index (BMI) is a weight-for-height index that classifies underweight, overweight, and obesity in adults.</p>
+            </div>
+
+            <hr>
+
+            <div class="col-12 text-white">
+                <h4 class="text text-white" style="opacity: 0.8;">Systolic blood pressure (mmHg)</h4>
+            </div>
+            <div class="col-12 col-md-7 text-white">
+                <div id="chartContainer1" style="height: 300px; width: 100%;"></div>
+            </div>
+
+            <div class="col-12 col-md-5 text-white">
+                <p class="text text-white" style="opacity: 0.8; text-align: justify;">Systolic blood pressure is the pressure when the heart beats - while the heart muscle is contracting (squeezing) and pumping oxygen-rich blood into the blood vessels.</p>
+            </div>
+
+            <hr>
+            
+            <div class="col-12 text-white">
+                <h4 class="text text-white" style="opacity: 0.8;">Diastolyc blood pressure (mmHg)</h4>
+            </div>
+            <div class="col-12 col-md-7 text-white">
+                <div id="chartContainer2" style="height: 300px; width: 100%;"></div>
+            </div>
+
+            <div class="col-12 col-md-5 text-white">
+                <p class="text text-white" style="opacity: 0.8; text-align: justify;">Diastolic blood pressure is the pressure on the blood vessels when the heart muscle relaxes. The diastolic pressure is always lower than the systolic pressure.</p>
+            </div>
+
+            <hr>
+            
+            <div class="col-12 text-white">
+                <h4 class="text text-white" style="opacity: 0.8;">Respiratory rythm (/min)</h4>
+            </div>
+            <div class="col-12 col-md-7 text-white">
+                <div id="chartContainer3" style="height: 300px; width: 100%;"></div>
+            </div>
+
+            <div class="col-12 col-md-5 text-white">
+                <p class="text text-white" style="opacity: 0.8; text-align: justify;">This article is about the measurement of breathing. For the parameter used in ecological and agronomical modeling, see respiration rate. The respiratory rate is the rate at which breathing occurs; it is set and controlled by the respiratory center of the brain. A person's respiratory rate is usually measured in breaths per minute.</p>
+            </div>
+
+            <hr>
+            
+            <div class="col-12 text-white">
+                <h4 class="text text-white" style="opacity: 0.8;">Temperature (C)</h4>
+            </div>
+            <div class="col-12 col-md-7 text-white">
+                <div id="chartContainer4" style="height: 300px; width: 100%;"></div>
+            </div>
+
+            <div class="col-12 col-md-5 text-white">
+                <p class="text text-white" style="opacity: 0.8; text-align: justify;">Normal human body-temperature (normothermia, euthermia) is the typical temperature range found in humans.
+                    <br> Human body temperature varies. It depends on sex, age, time of day, exertion level, health status (such as illness and menstruation), what part of the body the measurement is taken at, state of consciousness (waking, sleeping, sedated), and emotions. Body temperature is kept in the normal range by thermoregulation, in which adjustment of temperature is triggered by the central nervous system.
+                </p>
+            </div>
+
+            <hr>
+
+        </div>
+
+    </div>
+
+    <div class="col-2 p-0" style=" background: linear-gradient(to right, transparent, #1f7a82);">
+    </div>
+<!--custom tooltip container
+<div id="chart-tooltip"></div>-->
+{%endblock%}
+
+{%block script%}
+
+
+  <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+<script type="text/javascript">
+    window.onload = function () {
+        
+        var chart = new CanvasJS.Chart("chartContainer",
+            {
+                title:{
+                    text: "",
+                    fontFamily: "Segoe UI",
+                    fontWeight: "bold",
+                    fontColor: "white"
+                },
+                backgroundColor: "transparent",
+                legend:{
+                    verticalAlign: "bottom",
+                    horizontalAlign: "center",
+                    fontColor: "white"
+                },
+                data: [
+                {
+                    startAngle: 45,
+                    indexLabelFontSize: 12,
+                    indexLabelFontFamily: "Segoe UI",
+                    indexLabelFontColor: "white",
+                    indexLabelLineColor: "white",
+                    indexLabelPlacement: "outside",
+                    type: "doughnut",
+                    showInLegend: true,
+                    toolTipContent: "{name}: <strong>(#percent%)</strong>",
+                    indexLabel: "{name} -  #percent%",
+                    dataPoints: [
+                    {  y: {{bmi1}}, name:"Underweight", color: "#f9cf91"},
+                    {  y: {{bmi2}}, name:"Normal Weight", color: "#787195"},
+                    {  y: {{bmi3}}, name:"Overweight", color: "#f2b762"},
+                    {  y: {{bmi5}}, name:"Obesity Class I", color: "#343565"},
+                    {  y: {{bmi6}}, name:"Obesity Class II", color: "#1f7a82"},
+                    {  y: {{bmi7}}, name:"Obesity Class III", color: "#363636"}
+                    ],
+                }]
+            }
+        );
+
+        chart.render();
+        
+        var chart1 = new CanvasJS.Chart("chartContainer1",
+            {
+                title:{
+                    text: "Type of TB",
+                    fontFamily: "Segoe UI",
+                    fontWeight: "bold",
+                    fontColor: "white"
+                },
+                backgroundColor: "transparent",
+                legend:{
+                    verticalAlign: "bottom",
+                    horizontalAlign: "center",
+                    fontColor: "white"
+                },
+                data: [
+                {
+                    startAngle: 45,
+                    indexLabelFontSize: 12,
+                    indexLabelFontFamily: "Segoe UI",
+                    indexLabelFontColor: "white",
+                    indexLabelLineColor: "white",
+                    indexLabelPlacement: "outside",
+                    type: "doughnut",
+                    showInLegend: true,
+                    toolTipContent: "{name}: <strong>(#percent%)</strong>",
+                    indexLabel: "{name} -  #percent%",
+                    dataPoints: [
+                    {  y: {{systolic1}}, name:"Normal systolic blood pressure", color: "#f9cf91"},
+                    {  y: {{systolic2}}, name:"High systolic blood pressure", color: "#787195" }
+                    ],
+                }]
+            }
+        );
+
+        chart1.render();
+        
+        var chart2 = new CanvasJS.Chart("chartContainer2",
+            {
+                title:{
+                    text: "",
+                    fontFamily: "Segoe UI",
+                    fontWeight: "bold",
+                    fontColor: "white"
+                },
+                backgroundColor: "transparent",
+                legend:{
+                    verticalAlign: "bottom",
+                    horizontalAlign: "center",
+                    fontColor: "white"
+                },
+                data: [
+                {
+                    startAngle: 45,
+                    indexLabelFontSize: 12,
+                    indexLabelFontFamily: "Segoe UI",
+                    indexLabelFontColor: "white",
+                    indexLabelLineColor: "white",
+                    indexLabelPlacement: "outside",
+                    type: "doughnut",
+                    showInLegend: true,
+                    toolTipContent: "{name}: <strong>(#percent%)</strong>",
+                    indexLabel: "{name} -  #percent%",
+                    dataPoints: [
+                    {  y: {{diastolic1}}, name:"Normal diastolic blood pressure", color: "#f9cf91"},
+                    {  y: {{diastolic2}}, name:"High diastolic blood pressure", color: "#787195" }
+                    ],
+                }]
+            }
+        );
+
+        chart2.render();
+        
+        var chart3 = new CanvasJS.Chart("chartContainer3",
+            {
+                title:{
+                    text: "",
+                    fontFamily: "Segoe UI",
+                    fontWeight: "bold",
+                    fontColor: "white"
+                },
+                backgroundColor: "transparent",
+                legend:{
+                    verticalAlign: "bottom",
+                    horizontalAlign: "center",
+                    fontColor: "white"
+                },
+                data: [
+                {
+                    startAngle: 45,
+                    indexLabelFontSize: 12,
+                    indexLabelFontFamily: "Segoe UI",
+                    indexLabelFontColor: "white",
+                    indexLabelLineColor: "white",
+                    indexLabelPlacement: "outside",
+                    type: "doughnut",
+                    showInLegend: true,
+                    toolTipContent: "{name}: <strong>(#percent%)</strong>",
+                    indexLabel: "{name} -  #percent%",
+                    dataPoints: [
+                    {  y: {{rrm1}}, name:"Low respiration rate", color: "#f9cf91"},
+                    {  y: {{rrm2}}, name:"Normal respiration rate", color: "#787195" },
+                    {  y: {{rrm3}}, name:"High respiration rate", color: "#f2b762"}
+                    ],
+                }]
+            }
+        );
+
+        chart3.render();
+        
+        var chart4 = new CanvasJS.Chart("chartContainer4",
+            {
+                title:{
+                    text: "",
+                    fontFamily: "Segoe UI",
+                    fontWeight: "bold",
+                    fontColor: "white"
+                },
+                backgroundColor: "transparent",
+                legend:{
+                    verticalAlign: "bottom",
+                    horizontalAlign: "center",
+                    fontColor: "white"
+                },
+                data: [
+                {
+                    startAngle: 45,
+                    indexLabelFontSize: 12,
+                    indexLabelFontFamily: "Segoe UI",
+                    indexLabelFontColor: "white",
+                    indexLabelLineColor: "white",
+                    indexLabelPlacement: "outside",
+                    type: "doughnut",
+                    showInLegend: true,
+                    toolTipContent: "{name}: <strong>(#percent%)</strong>",
+                    indexLabel: "{name} -  #percent%",
+                    dataPoints: [
+                    {  y: {{temp1}}, name:"Hypothermia", color: "#f9cf91"},
+                    {  y: {{temp2}}, name:"Normal temperature", color: "#787195" },
+                    {  y: {{temp3}}, name:"Hyperthermia", color: "#f2b762"}
+                    ],
+                }]
+            }
+        );
+
+        chart4.render();
+        
+    }
+</script>
+
+
+{%endblock%}

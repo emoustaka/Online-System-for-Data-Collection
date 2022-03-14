@@ -1,0 +1,26 @@
+{% extends 'main/base.html' %}
+
+{% block edit %}
+
+        <div class="col-2 p-0" style="background-image:linear-gradient(to left, transparent, #1f7a82);">
+        </div>
+        <div class="col-8 pt-4 pb-4">
+            {% block content %}
+            {% endblock %}
+        </div>
+        <div class="col-2 p-0" style="background-image:linear-gradient(to right, transparent, #1f7a82);">
+        </div>
+        
+{%endblock%}
+
+{% block hr %}
+    block
+{% endblock %}
+
+{% block blank%}
+    none
+{% endblock %}
+
+ {% block hr-padding %}
+    0vh
+ {% endblock %}

@@ -1,0 +1,62 @@
+{% extends 'main/view.html' %}
+{% load static %}
+
+{% block title %}
+Clinical Examination
+{% endblock %}
+
+{% block header %}
+    <h1 class="text-white" style="opacity: 0.8;">Clinical Examination</h1>
+{% endblock %}
+
+
+{% block info %}
+
+
+    <div class="text">
+         <p>Here will be presented data about your clinical examination, if you are registered in the platform.</p>
+    </div>
+
+{% endblock %}
+
+{% block content %}
+			{% if current_user.clinicalexamination.all %}
+				{% for ce in current_user.clinicalexamination.all %}
+					<p>Height (cm): {{ce.height}}</p>
+                    <hr>
+					<p>Weight (kg): {{ce.weight}}</p>
+                    <hr>
+					<p>Weistline (cm): {{ce.weistline}}</p>
+                    <hr>
+					<p>Body Mass Index: {{ce.bmi}}</p>
+                    <hr>
+					<p>Blood pressure: Systolic (mmHg): {{ce.systolic}}</p>
+                    <hr>
+					<p>Blood pressure: Diastolyc (mmHg): {{ce.diastolic}}</p>
+                    <hr>
+					<p>Pulse (/min): {{ce.pulse}}</p>
+                    <hr>
+					<p>Respiratory rythm (/min): {{ce.respiratoryRythm}}</p>
+                    <hr>
+					<p>Temperature (C): {{ce.temperature}}</p>
+                    <hr>
+					<p>Hospital: {{ce.hospital}}</p>
+				{% endfor %}
+			{% else %}
+				<div class="row justify-content-center">
+					<p>Here will be presented all your clinical examinations' data.</p>
+				</div>
+			{% endif %}
+{% endblock %}
+
+{% block image %}
+	url('{% static 'main/CEmt.png' %}')
+{% endblock %}
+
+{% block button %}
+	Edit Clinical Examination
+{% endblock %}
+
+{% block link %}
+	/ce
+{% endblock %}

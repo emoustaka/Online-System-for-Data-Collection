@@ -1,0 +1,1165 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Vaccination data
+{% endblock %}
+
+{% block header %}
+    <h1 class="text-white" style="opacity: 0.8;">Vaccination data</h1>
+{% endblock %}
+
+ {% block blank%}
+	none
+ {% endblock %}
+
+{% block hr %}
+    block
+{% endblock %}
+ 
+ {% block hr-padding %}
+    0vh
+ {% endblock %}
+
+{% block home %}
+    <div class="col-2 p-0" style="background-image:linear-gradient(to left, transparent, #1f7a82);">
+    </div>
+	<div  class="col-8 text-left pt-4 pb-4">
+        <div class="row justify-content-center m-1 container" style="margin-left:0px; margin-right:0px; min-height:20px;">
+
+            <div class="col-12 text-white">
+                <h4 class="text text-white" style="opacity: 0.8;">Chickenpox / Varicella Vaccination</h4>
+            </div>
+            <div class="col-12 col-md-7 text-white">
+                <div id="chartContainer1" style="height: 300px; width: 100%;"></div>
+            </div>
+
+            <div class="col-12 col-md-5 text-white">
+                <p class="text text-white" style="opacity: 0.8; text-align: justify;">Chickenpox is a very contagious disease caused by the varicella-zoster virus (VZV). It causes a blister-like rash, itching, tiredness, and fever.</p>
+            </div>
+
+            <hr>
+
+            <div class="col-12 text-white">
+                <h4 class="text text-white" style="opacity: 0.8;">Diphtheria and tetanus (DT) vaccine</h4>
+            </div>
+
+            <div class="col-12 col-md-7 text-white">
+                <div id="chartContainer2" style="height: 300px; width: 100%;"></div>
+            </div>
+
+            <div class="col-12 col-md-5 text-white">
+                <p class="text text-white" style="opacity: 0.8; text-align: justify;">Diphtheria is an infection caused by Corynebacterium diphtheriae bacteria.</p>
+            </div>
+
+            <hr>
+
+            <div class="col-12 text-white">
+                <h4 class="text text-white" style="opacity: 0.8;">Diphtheria, tetanus, and pertussis (DTaP) vaccine</h4>
+            </div>
+
+            <div class="col-12 col-md-7 text-white">
+                <div id="chartContainer3" style="height: 300px; width: 100%;"></div>
+            </div>
+
+            <div class="col-12 col-md-5 text-white">
+                <p class="text text-white" style="opacity: 0.8; text-align: justify;">Diphtheria is an infection caused by Corynebacterium diphtheriae bacteria.</p>
+            </div>
+
+            <hr>
+
+            <div class="col-12 text-white">
+                <h4 class="text text-white" style="opacity: 0.8;">Tetanus and diphtheria (Td) vaccine</h4>
+            </div>
+
+            <div class="col-12 col-md-7 text-white">
+                <div id="chartContainer4" style="height: 300px; width: 100%;"></div>
+            </div>
+
+            <div class="col-12 col-md-5 text-white">
+                <p class="text text-white" style="opacity: 0.8; text-align: justify;">Diphtheria is an infection caused by Corynebacterium diphtheriae bacteria.</p>
+            </div>
+
+            <hr>
+
+            <div class="col-12 text-white">
+                <h4 class="text text-white" style="opacity: 0.8;">Tetanus, diphtheria, and pertussis (Tdap) vaccine</h4>
+            </div>
+
+            <div class="col-12 col-md-7 text-white">
+                <div id="chartContainer5" style="height: 300px; width: 100%;"></div>
+            </div>
+
+            <div class="col-12 col-md-5 text-white">
+                <p class="text text-white" style="opacity: 0.8; text-align: justify;">Diphtheria is an infection caused by Corynebacterium diphtheriae bacteria.</p>
+            </div>
+
+            <hr>
+
+            <div class="col-12 text-white">
+                <h4 class="text text-white" style="opacity: 0.8;">Seasonal Influenza (Flu) Vaccination and Preventable Disease</h4>
+            </div>
+
+            <div class="col-12 col-md-7 text-white">
+                <div id="chartContainer6" style="height: 300px; width: 100%;"></div>
+            </div>
+
+            <div class="col-12 col-md-5 text-white">
+                <p class="text text-white" style="opacity: 0.8; text-align: justify;">Influenza (flu) is a contagious respiratory illness caused by influenza viruses that infect the nose, throat, and lungs. It can cause mild to severe illness, and can lead to hospitalization and death. Anyone can get the flu (even healthy people) and serious problems related to the flu can happen at any age, but some people are a higher risk of developing serious flu-related complications if they get sick. This includes people 65 years and older, people of any age with certain chronic medical conditions (such as diabetes, asthma, or heart disease), pregnant women, and young children.</p>
+            </div>
+
+            <hr>
+
+            <div class="col-12 text-white">
+                <h4 class="text text-white" style="opacity: 0.8;">Hepatitis A Vaccination</h4>
+            </div>
+
+            <div class="col-12 col-md-7 text-white">
+                <div id="chartContainer7" style="height: 300px; width: 100%;"></div>
+            </div>
+
+            <div class="col-12 col-md-5 text-white">
+                <p class="text text-white" style="opacity: 0.8; text-align: justify;">Hepatitis A is a liver disease caused by the hepatitis A virus (HAV). Hepatitis A can affect anyone. Vaccines are available for long-term prevention of HAV infection in persons 1 year of age and older. Good personal hygiene and proper sanitation can also help prevent the spread of hepatitis A.</p>
+            </div>
+
+            <hr>
+
+            <div class="col-12 text-white">
+                <h4 class="text text-white" style="opacity: 0.8;">Hepatitis B Vaccination</h4>
+            </div>
+
+            <div class="col-12 col-md-7 text-white">
+                <div id="chartContainer8" style="height: 300px; width: 100%;"></div>
+            </div>
+
+            <div class="col-12 col-md-5 text-white">
+                <p class="text text-white" style="opacity: 0.8; text-align: justify;">Hepatitis B is a serious disease caused by a virus that attacks the liver. The virus, which is called hepatitis B virus (HBV), can cause lifelong infection, cirrhosis (scarring) of the liver, liver cancer, liver failure, and death. Hepatitis B vaccine is available for all age groups to prevent HBV infection.</p>
+            </div>
+
+            <hr>
+
+            <div class="col-12 text-white">
+                <h4 class="text text-white" style="opacity: 0.8;">Hib (Haemophilus influenzae type b) Vaccination</h4>
+            </div>
+
+            <div class="col-12 col-md-7 text-white">
+                <div id="chartContainer9" style="height: 300px; width: 100%;"></div>
+            </div>
+
+            <div class="col-12 col-md-5 text-white">
+                <p class="text text-white" style="opacity: 0.8; text-align: justify;">Vaccines are available that can help prevent Haemophilus influenzae type b or Hib disease. These vaccines do not provide protection against other types of Haemophilus influenzae disease. Haemophilus influenzae disease is any type of infection caused by Haemophilus influenzae bacteria.</p>
+            </div>
+
+            <hr>
+
+            <div class="col-12 text-white">
+                <h4 class="text text-white" style="opacity: 0.8;">Human Papillomavirus (HPV) Vaccination & Cancer Prevention</h4>
+            </div>
+
+            <div class="col-12 col-md-7 text-white">
+                <div id="chartContainer10" style="height: 300px; width: 100%;"></div>
+            </div>
+
+            <div class="col-12 col-md-5 text-white">
+                <p class="text text-white" style="opacity: 0.8; text-align: justify;">Human papillomavirus (HPV) is a very common virus that can cause cancers later in life. Nearly 42 million people are currently infected with HPV in the United States. About 13 million people, including teens, become infected with HPV each year. HPV vaccination provides safe, effective, and lasting protection against the HPV infections that most commonly cause cancer.</p>
+            </div>
+
+            <hr>
+
+            <div class="col-12 text-white">
+                <h4 class="text text-white" style="opacity: 0.8;">MMR vaccine</h4>
+            </div>
+
+            <div class="col-12 col-md-7 text-white">
+                <div id="chartContainer11" style="height: 300px; width: 100%;"></div>
+            </div>
+
+            <div class="col-12 col-md-5 text-white">
+                <p class="text text-white" style="opacity: 0.8; text-align: justify;">This vaccine protects against three diseases: measles, mumps, and rubella. Measles is a very contagious disease caused by a virus. It spreads through the air when an infected person coughs or sneezes. Mumps is a contagious disease that is caused by a virus. Rubella is a contagious disease caused by a virus. It is also called German measles, but it is caused by a different virus than measles. </p>
+            </div>
+
+            <hr>
+
+            <div class="col-12 text-white">
+                <h4 class="text text-white" style="opacity: 0.8;">Meningococcal Vaccination</h4>
+            </div>
+
+            <div class="col-12 col-md-7 text-white">
+                <div id="chartContainer12" style="height: 300px; width: 100%;"></div>
+            </div>
+
+            <div class="col-12 col-md-5 text-white">
+                <p class="text text-white" style="opacity: 0.8; text-align: justify;">Meningococcal disease is any type of illness caused by Neisseria meningitidis bacteria. </p>
+            </div>
+
+            <hr>
+
+            <div class="col-12 text-white">
+                <h4 class="text text-white" style="opacity: 0.8;">Pneumococcal conjugate vaccine or PCV13</h4>
+            </div>
+
+            <div class="col-12 col-md-7 text-white">
+                <div id="chartContainer13" style="height: 300px; width: 100%;"></div>
+            </div>
+
+            <div class="col-12 col-md-5 text-white">
+                <p class="text text-white" style="opacity: 0.8; text-align: justify;">Vaccines help prevent pneumococcal disease, which is any type of illness caused by Streptococcus pneumoniae bacteria. </p>
+            </div>
+
+            <hr>
+
+            <div class="col-12 text-white">
+                <h4 class="text text-white" style="opacity: 0.8;">Pneumococcal polysaccharide vaccine or PPSV23</h4>
+            </div>
+
+            <div class="col-12 col-md-7 text-white">
+                <div id="chartContainer14" style="height: 300px; width: 100%;"></div>
+            </div>
+
+            <div class="col-12 col-md-5 text-white">
+                <p class="text text-white" style="opacity: 0.8; text-align: justify;">Vaccines help prevent pneumococcal disease, which is any type of illness caused by Streptococcus pneumoniae bacteria. </p>
+            </div>
+
+            <hr>
+
+            <div class="col-12 text-white">
+                <h4 class="text text-white" style="opacity: 0.8;">Inactivated polio vaccine (IPV)</h4>
+            </div>
+
+            <div class="col-12 col-md-7 text-white">
+                <div id="chartContainer15" style="height: 300px; width: 100%;"></div>
+            </div>
+
+            <div class="col-12 col-md-5 text-white">
+                <p class="text text-white" style="opacity: 0.8; text-align: justify;">Polio, or poliomyelitis, is a crippling and potentially deadly disease. It is caused by the poliovirus. The virus spreads from person to person and can invade an infected person's brain and spinal cord, causing paralysis (can't move parts of the body).</p>
+            </div>
+
+            <hr>
+
+            <div class="col-12 text-white">
+                <h4 class="text text-white" style="opacity: 0.8;">Oral polio vaccine (OPV)</h4>
+            </div>
+
+            <div class="col-12 col-md-7 text-white">
+                <div id="chartContainer16" style="height: 300px; width: 100%;"></div>
+            </div>
+
+            <div class="col-12 col-md-5 text-white">
+                <p class="text text-white" style="opacity: 0.8; text-align: justify;">Polio, or poliomyelitis, is a crippling and potentially deadly disease. It is caused by the poliovirus. The virus spreads from person to person and can invade an infected person's brain and spinal cord, causing paralysis (can't move parts of the body).</p>
+            </div>
+
+            <hr>
+
+            <div class="col-12 text-white">
+                <h4 class="text text-white" style="opacity: 0.8;">Rotavirus Vaccination</h4>
+            </div>
+            
+            <div class="col-12 col-md-7 text-white">
+                <div id="chartContainer17" style="height: 300px; width: 100%;"></div>
+            </div>
+
+            <div class="col-12 col-md-5 text-white">
+                <p class="text text-white" style="opacity: 0.8; text-align: justify;">Rotavirus spreads easily among infants and young children. The virus can cause severe watery diarrhea, vomiting, fever, and abdominal pain. Children who get rotavirus disease can become dehydrated and may need to be hospitalized. Good hygiene like handwashing and cleanliness are important, but are not enough to control the spread of the disease. Rotavirus vaccine is the best way to protect your child against rotavirus disease. Most children (about 9 out of 10) who get the vaccine will be protected from severe rotavirus disease. About 7 out of 10 children will be protected from rotavirus disease of any severity.</p>
+            </div>
+
+            <hr>
+
+            <div class="col-12 text-white">
+                <h4 class="text text-white" style="opacity: 0.8;">Recombinant zoster vaccine (RZV, Shingrix)</h4>
+            </div>
+            
+            <div class="col-12 col-md-7 text-white">
+                <div id="chartContainer18" style="height: 300px; width: 100%;"></div>
+            </div>
+
+            <div class="col-12 col-md-5 text-white">
+                <p class="text text-white" style="opacity: 0.8; text-align: justify;">Shingles is a painful rash that usually develops on one side of the body, often the face or torso. The rash consists of blisters that typically scab over in 7 to 10 days and clears up within 2 to 4 weeks. Some people describe the pain as an intense burning sensation. For some people, the pain can last for months or even years after the rash goes away. This long-lasting pain is called postherpetic neuralgia (PHN), and it is the most common complication of shingles. Your risk of getting shingles and PHN increases as you get older.</p>
+            </div>
+
+            <hr>
+
+            <div class="col-12 text-white">
+                <h4 class="text text-white" style="opacity: 0.8;">Tuberculosis (TB) Vaccination</h4>
+            </div>
+            
+            <div class="col-12 col-md-7 text-white">
+                <div id="chartContainer19" style="height: 300px; width: 100%;"></div>
+            </div>
+
+            <div class="col-12 col-md-5 text-white">
+                <p class="text text-white" style="opacity: 0.8; text-align: justify;">BCG is a vaccine for TB. BCG vaccine does not always protect people from getting TB. If you were vaccinated with BCG, you may have a positive reaction to a TB skin test.</p>
+            </div>
+
+            <hr>
+
+            <div class="col-12 text-white">
+                <h4 class="text text-white" style="opacity: 0.8;">Typhoid Fever Vaccination</h4>
+            </div>
+            
+            <div class="col-12 col-md-7 text-white">
+                <div id="chartContainer20" style="height: 300px; width: 100%;"></div>
+            </div>
+
+            <div class="col-12 col-md-5 text-white">
+                <p class="text text-white" style="opacity: 0.8; text-align: justify;">If you are traveling to a country where typhoid (Salmonella serotype Typhi) is common, you should consider being vaccinated against typhoid. Visit a doctor or travel clinic to discuss your vaccination options. Remember that you will need to complete your vaccination at least 1 week before you travel so that the vaccine has time to take effect. Typhoid vaccines lose effectiveness after several years; if you were vaccinated in the past, check with your doctor to see if it is time for a booster vaccination.</p>
+            </div>
+
+            <hr>
+
+            <div class="col-12 text-white">
+                <h4 class="text text-white" style="opacity: 0.8;">Yellow Fever Vaccination</h4>
+            </div>
+            
+            <div class="col-12 col-md-7 text-white">
+                <div id="chartContainer21" style="height: 300px; width: 100%;"></div>
+            </div>
+
+            <div class="col-12 col-md-5 text-white">
+                <p class="text text-white" style="opacity: 0.8; text-align: justify;">Yellow fever can be prevented by vaccination. Travelers should also take precautions against mosquito bites when in areas with yellow fever transmission. Travelers should get vaccinated for yellow fever before visiting areas where yellow fever is found. For most travelers, a single dose of yellow fever vaccine provides long-lasting protection, and a booster dose of the vaccine is not needed. However, some travelers may require a booster dose. Talk to your healthcare provider to determine if you may need a dose of yellow fever vaccine or a booster dose before your trip to an area at risk for yellow fever.</p>
+            </div>
+
+            <hr>
+
+            <div class="col-12 text-white">
+                <h4 class="text text-white" style="opacity: 0.8;">covid19</h4>
+            </div>
+            
+            <div class="col-12 col-md-7 text-white">
+                <div id="chartContainer22" style="height: 300px; width: 100%;"></div>
+            </div>
+
+            <div class="col-12 col-md-5 text-white">
+                <p class="text text-white" style="opacity: 0.8; text-align: justify;">data</p>
+            </div>
+        </div>  
+
+    </div>
+    <div class="col-2 p-0" style=" background: linear-gradient(to right, transparent, #1f7a82);">
+    </div>
+<!--custom tooltip container
+<div id="chart-tooltip"></div>-->
+{%endblock%}
+
+{%block script%}
+
+
+  <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+<script type="text/javascript">
+    window.onload = function () {
+        
+        var chart1 = new CanvasJS.Chart("chartContainer1",
+            {
+                title:{
+                    text: " ",
+                    fontFamily: "Segoe UI",
+                    fontWeight: "bold",
+                    fontColor: "white"
+                },
+                backgroundColor: "transparent",
+                legend:{
+                    verticalAlign: "bottom",
+                    horizontalAlign: "center",
+                    fontColor: "white"
+                },
+                data: [
+                {
+                    startAngle: 45,
+                    indexLabelFontSize: 12,
+                    indexLabelFontFamily: "Segoe UI",
+                    indexLabelFontColor: "white",
+                    indexLabelLineColor: "white",
+                    indexLabelPlacement: "outside",
+                    type: "doughnut",
+                    showInLegend: true,
+                    toolTipContent: "{name}: <strong>(#percent%)</strong>",
+                    indexLabel: "{name} -  #percent%",
+                    dataPoints: [
+                    {  y: {{tchickenpox}}, name:"Fully vaccinated", color: "#f9cf91"},
+                    {  y: {{pchickenpox}}, name:"Partialy vaccinated", color: "#787195"},
+                    {  y: {{fchickenpox}}, name:"Unvaccinated", color: "#363636"}
+                    ],
+                }]
+            }
+        );
+
+        chart1.render();
+        
+        var chart2 = new CanvasJS.Chart("chartContainer2",
+            {
+                title:{
+                    text: " ",
+                    fontFamily: "Segoe UI",
+                    fontWeight: "bold",
+                    fontColor: "white"
+                },
+                backgroundColor: "transparent",
+                legend:{
+                    verticalAlign: "bottom",
+                    horizontalAlign: "center",
+                    fontColor: "white"
+                },
+                data: [
+                {
+                    startAngle: 45,
+                    indexLabelFontSize: 12,
+                    indexLabelFontFamily: "Segoe UI",
+                    indexLabelFontColor: "white",
+                    indexLabelLineColor: "white",
+                    indexLabelPlacement: "outside",
+                    type: "doughnut",
+                    showInLegend: true,
+                    toolTipContent: "{name}: <strong>(#percent%)</strong>",
+                    indexLabel: "{name} -  #percent%",
+                    dataPoints: [
+                    {  y: {{tdt}}, name:"Fully vaccinated", color: "#f9cf91"},
+                    {  y: {{pdt}}, name:"Partialy vaccinated", color: "#787195"},
+                    {  y: {{fdt}}, name:"Unvaccinated", color: "#363636"}
+                    ],
+                }]
+            }
+        );
+
+        chart2.render();
+        
+        var chart3 = new CanvasJS.Chart("chartContainer3",
+            {
+                title:{
+                    text: " ",
+                    fontFamily: "Segoe UI",
+                    fontWeight: "bold",
+                    fontColor: "white"
+                },
+                backgroundColor: "transparent",
+                legend:{
+                    verticalAlign: "bottom",
+                    horizontalAlign: "center",
+                    fontColor: "white"
+                },
+                data: [
+                {
+                    startAngle: 45,
+                    indexLabelFontSize: 12,
+                    indexLabelFontFamily: "Segoe UI",
+                    indexLabelFontColor: "white",
+                    indexLabelLineColor: "white",
+                    indexLabelPlacement: "outside",
+                    type: "doughnut",
+                    showInLegend: true,
+                    toolTipContent: "{name}: <strong>(#percent%)</strong>",
+                    indexLabel: "{name} -  #percent%",
+                    dataPoints: [
+                    {  y: {{tdtap}}, name:"Fully vaccinated", color: "#f9cf91"},
+                    {  y: {{pdtap}}, name:"Partialy vaccinated", color: "#787195"},
+                    {  y: {{fdtap}}, name:"Unvaccinated", color: "#363636"}
+                    ],
+                }]
+            }
+        );
+
+        chart3.render();
+        
+        var chart4 = new CanvasJS.Chart("chartContainer4",
+            {
+                title:{
+                    text: "Td",
+                    fontFamily: "Segoe UI",
+                    fontWeight: "bold",
+                    fontColor: "white"
+                },
+                backgroundColor: "transparent",
+                legend:{
+                    verticalAlign: "bottom",
+                    horizontalAlign: "center",
+                    fontColor: "white"
+                },
+                data: [
+                {
+                    startAngle: 45,
+                    indexLabelFontSize: 12,
+                    indexLabelFontFamily: "Segoe UI",
+                    indexLabelFontColor: "white",
+                    indexLabelLineColor: "white",
+                    indexLabelPlacement: "outside",
+                    type: "doughnut",
+                    showInLegend: true,
+                    toolTipContent: "{name}: <strong>(#percent%)</strong>",
+                    indexLabel: "{name} -  #percent%",
+                    dataPoints: [
+                    {  y: {{ttd}}, name:"Fully vaccinated", color: "#f9cf91"},
+                    {  y: {{ptd}}, name:"Partialy vaccinated", color: "#787195"},
+                    {  y: {{ftd}}, name:"Unvaccinated", color: "#363636"}
+                    ],
+                }]
+            }
+        );
+
+        chart4.render();
+        
+        var chart5 = new CanvasJS.Chart("chartContainer5",
+            {
+                title:{
+                    text: "Tdap",
+                    fontFamily: "Segoe UI",
+                    fontWeight: "bold",
+                    fontColor: "white"
+                },
+                backgroundColor: "transparent",
+                legend:{
+                    verticalAlign: "bottom",
+                    horizontalAlign: "center",
+                    fontColor: "white"
+                },
+                data: [
+                {
+                    startAngle: 45,
+                    indexLabelFontSize: 12,
+                    indexLabelFontFamily: "Segoe UI",
+                    indexLabelFontColor: "white",
+                    indexLabelLineColor: "white",
+                    indexLabelPlacement: "outside",
+                    type: "doughnut",
+                    showInLegend: true,
+                    toolTipContent: "{name}: <strong>(#percent%)</strong>",
+                    indexLabel: "{name} -  #percent%",
+                    dataPoints: [
+                    {  y: {{ttdap}}, name:"Fully vaccinated", color: "#f9cf91"},
+                    {  y: {{ptdap}}, name:"Partialy vaccinated", color: "#787195"},
+                    {  y: {{ftdap}}, name:"Unvaccinated", color: "#363636"}
+                    ],
+                }]
+            }
+        );
+
+        chart5.render();
+        
+        var chart6 = new CanvasJS.Chart("chartContainer6",
+            {
+                title:{
+                    text: " ",
+                    fontFamily: "Segoe UI",
+                    fontWeight: "bold",
+                    fontColor: "white"
+                },
+                backgroundColor: "transparent",
+                legend:{
+                    verticalAlign: "bottom",
+                    horizontalAlign: "center",
+                    fontColor: "white"
+                },
+                data: [
+                {
+                    startAngle: 45,
+                    indexLabelFontSize: 12,
+                    indexLabelFontFamily: "Segoe UI",
+                    indexLabelFontColor: "white",
+                    indexLabelLineColor: "white",
+                    indexLabelPlacement: "outside",
+                    type: "doughnut",
+                    showInLegend: true,
+                    toolTipContent: "{name}: <strong>(#percent%)</strong>",
+                    indexLabel: "{name} -  #percent%",
+                    dataPoints: [
+                    {  y: {{tflu}}, name:"Fully vaccinated", color: "#f9cf91"},
+                    {  y: {{pflu}}, name:"Partialy vaccinated", color: "#787195"},
+                    {  y: {{fflu}}, name:"Unvaccinated", color: "#363636"}
+                    ],
+                }]
+            }
+        );
+
+        chart6.render();
+        
+        var chart7 = new CanvasJS.Chart("chartContainer7",
+            {
+                title:{
+                    text: " ",
+                    fontFamily: "Segoe UI",
+                    fontWeight: "bold",
+                    fontColor: "white"
+                },
+                backgroundColor: "transparent",
+                legend:{
+                    verticalAlign: "bottom",
+                    horizontalAlign: "center",
+                    fontColor: "white"
+                },
+                data: [
+                {
+                    startAngle: 45,
+                    indexLabelFontSize: 12,
+                    indexLabelFontFamily: "Segoe UI",
+                    indexLabelFontColor: "white",
+                    indexLabelLineColor: "white",
+                    indexLabelPlacement: "outside",
+                    type: "doughnut",
+                    showInLegend: true,
+                    toolTipContent: "{name}: <strong>(#percent%)</strong>",
+                    indexLabel: "{name} -  #percent%",
+                    dataPoints: [
+                    {  y: {{thav}}, name:"Fully vaccinated", color: "#f9cf91"},
+                    {  y: {{phav}}, name:"Partialy vaccinated", color: "#787195"},
+                    {  y: {{fhav}}, name:"Unvaccinated", color: "#363636"}
+                    ],
+                }]
+            }
+        );
+
+        chart7.render();
+        
+        var chart8 = new CanvasJS.Chart("chartContainer8",
+            {
+                title:{
+                    text: " ",
+                    fontFamily: "Segoe UI",
+                    fontWeight: "bold",
+                    fontColor: "white"
+                },
+                backgroundColor: "transparent",
+                legend:{
+                    verticalAlign: "bottom",
+                    horizontalAlign: "center",
+                    fontColor: "white"
+                },
+                data: [
+                {
+                    startAngle: 45,
+                    indexLabelFontSize: 12,
+                    indexLabelFontFamily: "Segoe UI",
+                    indexLabelFontColor: "white",
+                    indexLabelLineColor: "white",
+                    indexLabelPlacement: "outside",
+                    type: "doughnut",
+                    showInLegend: true,
+                    toolTipContent: "{name}: <strong>(#percent%)</strong>",
+                    indexLabel: "{name} -  #percent%",
+                    dataPoints: [
+                    {  y: {{thbv}}, name:"Fully vaccinated", color: "#f9cf91"},
+                    {  y: {{phbv}}, name:"Partialy vaccinated", color: "#787195"},
+                    {  y: {{fhbv}}, name:"Unvaccinated", color: "#363636"}
+                    ],
+                }]
+            }
+        );
+
+        chart8.render();
+        
+        var chart9 = new CanvasJS.Chart("chartContainer9",
+            {
+                title:{
+                    text: " ",
+                    fontFamily: "Segoe UI",
+                    fontWeight: "bold",
+                    fontColor: "white"
+                },
+                backgroundColor: "transparent",
+                legend:{
+                    verticalAlign: "bottom",
+                    horizontalAlign: "center",
+                    fontColor: "white"
+                },
+                data: [
+                {
+                    startAngle: 45,
+                    indexLabelFontSize: 12,
+                    indexLabelFontFamily: "Segoe UI",
+                    indexLabelFontColor: "white",
+                    indexLabelLineColor: "white",
+                    indexLabelPlacement: "outside",
+                    type: "doughnut",
+                    showInLegend: true,
+                    toolTipContent: "{name}: <strong>(#percent%)</strong>",
+                    indexLabel: "{name} -  #percent%",
+                    dataPoints: [
+                    {  y: {{thib}}, name:"Fully vaccinated", color: "#f9cf91"},
+                    {  y: {{phib}}, name:"Partialy vaccinated", color: "#787195"},
+                    {  y: {{fhib}}, name:"Unvaccinated", color: "#363636"}
+                    ],
+                }]
+            }
+        );
+
+        chart9.render();
+        
+        var chart10 = new CanvasJS.Chart("chartContainer10",
+            {
+                title:{
+                    text: " ",
+                    fontFamily: "Segoe UI",
+                    fontWeight: "bold",
+                    fontColor: "white"
+                },
+                backgroundColor: "transparent",
+                legend:{
+                    verticalAlign: "bottom",
+                    horizontalAlign: "center",
+                    fontColor: "white"
+                },
+                data: [
+                {
+                    startAngle: 45,
+                    indexLabelFontSize: 12,
+                    indexLabelFontFamily: "Segoe UI",
+                    indexLabelFontColor: "white",
+                    indexLabelLineColor: "white",
+                    indexLabelPlacement: "outside",
+                    type: "doughnut",
+                    showInLegend: true,
+                    toolTipContent: "{name}: <strong>(#percent%)</strong>",
+                    indexLabel: "{name} -  #percent%",
+                    dataPoints: [
+                    {  y: {{thpv}}, name:"Fully vaccinated", color: "#f9cf91"},
+                    {  y: {{phpv}}, name:"Partialy vaccinated", color: "#787195"},
+                    {  y: {{fhpv}}, name:"Unvaccinated", color: "#363636"}
+                    ],
+                }]
+            }
+        );
+
+        chart10.render();
+        
+        var chart11 = new CanvasJS.Chart("chartContainer11",
+            {
+                title:{
+                    text: " ",
+                    fontFamily: "Segoe UI",
+                    fontWeight: "bold",
+                    fontColor: "white"
+                },
+                backgroundColor: "transparent",
+                legend:{
+                    verticalAlign: "bottom",
+                    horizontalAlign: "center",
+                    fontColor: "white"
+                },
+                data: [
+                {
+                    startAngle: 45,
+                    indexLabelFontSize: 12,
+                    indexLabelFontFamily: "Segoe UI",
+                    indexLabelFontColor: "white",
+                    indexLabelLineColor: "white",
+                    indexLabelPlacement: "outside",
+                    type: "doughnut",
+                    showInLegend: true,
+                    toolTipContent: "{name}: <strong>(#percent%)</strong>",
+                    indexLabel: "{name} -  #percent%",
+                    dataPoints: [
+                    {  y: {{tmmr}}, name:"Fully vaccinated", color: "#f9cf91"},
+                    {  y: {{pmmr}}, name:"Partialy vaccinated", color: "#787195"},
+                    {  y: {{fmmr}}, name:"Unvaccinated", color: "#363636"}
+                    ],
+                }]
+            }
+        );
+
+        chart11.render();
+        
+        var chart12 = new CanvasJS.Chart("chartContainer12",
+            {
+                title:{
+                    text: " ",
+                    fontFamily: "Segoe UI",
+                    fontWeight: "bold",
+                    fontColor: "white"
+                },
+                backgroundColor: "transparent",
+                legend:{
+                    verticalAlign: "bottom",
+                    horizontalAlign: "center",
+                    fontColor: "white"
+                },
+                data: [
+                {
+                    startAngle: 45,
+                    indexLabelFontSize: 12,
+                    indexLabelFontFamily: "Segoe UI",
+                    indexLabelFontColor: "white",
+                    indexLabelLineColor: "white",
+                    indexLabelPlacement: "outside",
+                    type: "doughnut",
+                    showInLegend: true,
+                    toolTipContent: "{name}: <strong>(#percent%)</strong>",
+                    indexLabel: "{name} -  #percent%",
+                    dataPoints: [
+                    {  y: {{tmeningococcal}}, name:"Fully vaccinated", color: "#f9cf91"},
+                    {  y: {{pmeningococcal}}, name:"Partialy vaccinated", color: "#787195"},
+                    {  y: {{fmeningococcal}}, name:"Unvaccinated", color: "#363636"}
+                    ],
+                }]
+            }
+        );
+
+        chart12.render();
+        
+        var chart13 = new CanvasJS.Chart("chartContainer13",
+            {
+                title:{
+                    text: " ",
+                    fontFamily: "Segoe UI",
+                    fontWeight: "bold",
+                    fontColor: "white"
+                },
+                backgroundColor: "transparent",
+                legend:{
+                    verticalAlign: "bottom",
+                    horizontalAlign: "center",
+                    fontColor: "white"
+                },
+                data: [
+                {
+                    startAngle: 45,
+                    indexLabelFontSize: 12,
+                    indexLabelFontFamily: "Segoe UI",
+                    indexLabelFontColor: "white",
+                    indexLabelLineColor: "white",
+                    indexLabelPlacement: "outside",
+                    type: "doughnut",
+                    showInLegend: true,
+                    toolTipContent: "{name}: <strong>(#percent%)</strong>",
+                    indexLabel: "{name} -  #percent%",
+                    dataPoints: [
+                    {  y: {{tpcv13}}, name:"Fully vaccinated", color: "#f9cf91"},
+                    {  y: {{ppcv13}}, name:"Partialy vaccinated", color: "#787195"},
+                    {  y: {{fpcv13}}, name:"Unvaccinated", color: "#363636"}
+                    ],
+                }]
+            }
+        );
+
+        chart13.render();
+        
+        var chart14 = new CanvasJS.Chart("chartContainer14",
+            {
+                title:{
+                    text: " ",
+                    fontFamily: "Segoe UI",
+                    fontWeight: "bold",
+                    fontColor: "white"
+                },
+                backgroundColor: "transparent",
+                legend:{
+                    verticalAlign: "bottom",
+                    horizontalAlign: "center",
+                    fontColor: "white"
+                },
+                data: [
+                {
+                    startAngle: 45,
+                    indexLabelFontSize: 12,
+                    indexLabelFontFamily: "Segoe UI",
+                    indexLabelFontColor: "white",
+                    indexLabelLineColor: "white",
+                    indexLabelPlacement: "outside",
+                    type: "doughnut",
+                    showInLegend: true,
+                    dataPoints: [
+                    {  y: {{tppsv23}}, name:"Fully vaccinated", color: "#f9cf91"},
+                    {  y: {{pppsv23}}, name:"Partialy vaccinated", color: "#787195"},
+                    {  y: {{fppsv23}}, name:"Unvaccinated", color: "#363636"}
+                    ],
+                }]
+            }
+        );
+
+        chart14.render();
+        
+        var chart15 = new CanvasJS.Chart("chartContainer15",
+            {
+                title:{
+                    text: " ",
+                    fontFamily: "Segoe UI",
+                    fontWeight: "bold",
+                    fontColor: "white"
+                },
+                backgroundColor: "transparent",
+                legend:{
+                    verticalAlign: "bottom",
+                    horizontalAlign: "center",
+                    fontColor: "white"
+                },
+                data: [
+                {
+                    startAngle: 45,
+                    indexLabelFontSize: 12,
+                    indexLabelFontFamily: "Segoe UI",
+                    indexLabelFontColor: "white",
+                    indexLabelLineColor: "white",
+                    indexLabelPlacement: "outside",
+                    type: "doughnut",
+                    showInLegend: true,
+                    toolTipContent: "{name}: <strong>(#percent%)</strong>",
+                    indexLabel: "{name} -  #percent%",
+                    dataPoints: [
+                    {  y: {{tipv}}, name:"Fully vaccinated", color: "#f9cf91"},
+                    {  y: {{pipv}}, name:"Partialy vaccinated", color: "#787195"},
+                    {  y: {{fipv}}, name:"Unvaccinated", color: "#363636"}
+                    ],
+                }]
+            }
+        );
+
+        chart15.render();
+        
+        var chart16 = new CanvasJS.Chart("chartContainer16",
+            {
+                title:{
+                    text: " ",
+                    fontFamily: "Segoe UI",
+                    fontWeight: "bold",
+                    fontColor: "white"
+                },
+                backgroundColor: "transparent",
+                legend:{
+                    verticalAlign: "bottom",
+                    horizontalAlign: "center",
+                    fontColor: "white"
+                },
+                data: [
+                {
+                    startAngle: 45,
+                    indexLabelFontSize: 12,
+                    indexLabelFontFamily: "Segoe UI",
+                    indexLabelFontColor: "white",
+                    indexLabelLineColor: "white",
+                    indexLabelPlacement: "outside",
+                    type: "doughnut",
+                    showInLegend: true,
+                    toolTipContent: "{name}: <strong>(#percent%)</strong>",
+                    indexLabel: "{name} -  #percent%",
+                    dataPoints: [
+                    {  y: {{topv}}, name:"Fully vaccinated", color: "#f9cf91"},
+                    {  y: {{popv}}, name:"Partialy vaccinated", color: "#787195"},
+                    {  y: {{fopv}}, name:"Unvaccinated", color: "#363636"}
+                    ],
+                }]
+            }
+        );
+
+        chart16.render();
+        
+        var chart17 = new CanvasJS.Chart("chartContainer17",
+            {
+                title:{
+                    text: " ",
+                    fontFamily: "Segoe UI",
+                    fontWeight: "bold",
+                    fontColor: "white"
+                },
+                backgroundColor: "transparent",
+                legend:{
+                    verticalAlign: "bottom",
+                    horizontalAlign: "center",
+                    fontColor: "white"
+                },
+                data: [
+                {
+                    startAngle: 45,
+                    indexLabelFontSize: 12,
+                    indexLabelFontFamily: "Segoe UI",
+                    indexLabelFontColor: "white",
+                    indexLabelLineColor: "white",
+                    indexLabelPlacement: "outside",
+                    type: "doughnut",
+                    showInLegend: true,
+                    toolTipContent: "{name}: <strong>(#percent%)</strong>",
+                    indexLabel: "{name} -  #percent%",
+                    dataPoints: [
+                    {  y: {{trotavirus}}, name:"Fully vaccinated", color: "#f9cf91"},
+                    {  y: {{protavirus}}, name:"Partialy vaccinated", color: "#787195"},
+                    {  y: {{frotavirus}}, name:"Unvaccinated", color: "#363636"}
+                    ],
+                }]
+            }
+        );
+
+        chart17.render();
+        
+        var chart18 = new CanvasJS.Chart("chartContainer18",
+            {
+                title:{
+                    text: " ",
+                    fontFamily: "Segoe UI",
+                    fontWeight: "bold",
+                    fontColor: "white"
+                },
+                backgroundColor: "transparent",
+                legend:{
+                    verticalAlign: "bottom",
+                    horizontalAlign: "center",
+                    fontColor: "white"
+                },
+                data: [
+                {
+                    startAngle: 45,
+                    indexLabelFontSize: 12,
+                    indexLabelFontFamily: "Segoe UI",
+                    indexLabelFontColor: "white",
+                    indexLabelLineColor: "white",
+                    indexLabelPlacement: "outside",
+                    type: "doughnut",
+                    showInLegend: true,
+                    toolTipContent: "{name}: <strong>(#percent%)</strong>",
+                    indexLabel: "{name} -  #percent%",
+                    dataPoints: [
+                    {  y: {{trzv}}, name:"Fully vaccinated", color: "#f9cf91"},
+                    {  y: {{przv}}, name:"Partialy vaccinated", color: "#787195"},
+                    {  y: {{frzv}}, name:"Unvaccinated", color: "#363636"}
+                    ],
+                }]
+            }
+        );
+
+        chart18.render();
+        
+        var chart19 = new CanvasJS.Chart("chartContainer19",
+            {
+                title:{
+                    text: " ",
+                    fontFamily: "Segoe UI",
+                    fontWeight: "bold",
+                    fontColor: "white"
+                },
+                backgroundColor: "transparent",
+                legend:{
+                    verticalAlign: "bottom",
+                    horizontalAlign: "center",
+                    fontColor: "white"
+                },
+                data: [
+                {
+                    startAngle: 45,
+                    indexLabelFontSize: 12,
+                    indexLabelFontFamily: "Segoe UI",
+                    indexLabelFontColor: "white",
+                    indexLabelLineColor: "white",
+                    indexLabelPlacement: "outside",
+                    type: "doughnut",
+                    showInLegend: true,
+                    toolTipContent: "{name}: <strong>(#percent%)</strong>",
+                    indexLabel: "{name} -  #percent%",
+                    dataPoints: [
+                    {  y: {{tbcg}}, name:"Fully vaccinated", color: "#f9cf91"},
+                    {  y: {{pbcg}}, name:"Partialy vaccinated", color: "#787195"},
+                    {  y: {{fbcg}}, name:"Unvaccinated", color: "#363636"}
+                    ],
+                }]
+            }
+        );
+
+        chart19.render();
+
+        var chart20 = new CanvasJS.Chart("chartContainer20",
+            {
+                title:{
+                    text: " ",
+                    fontFamily: "Segoe UI",
+                    fontWeight: "bold",
+                    fontColor: "white"
+                },
+                backgroundColor: "transparent",
+                legend:{
+                    verticalAlign: "bottom",
+                    horizontalAlign: "center",
+                    fontColor: "white"
+                },
+                data: [
+                {
+                    startAngle: 45,
+                    indexLabelFontSize: 12,
+                    indexLabelFontFamily: "Segoe UI",
+                    indexLabelFontColor: "white",
+                    indexLabelLineColor: "white",
+                    indexLabelPlacement: "outside",
+                    type: "doughnut",
+                    showInLegend: true,
+                    toolTipContent: "{name}: <strong>(#percent%)</strong>",
+                    indexLabel: "{name} -  #percent%",
+                    dataPoints: [
+                    {  y: {{ttyfoidFever}}, name:"Fully vaccinated", color: "#f9cf91"},
+                    {  y: {{ptyfoidFever}}, name:"Partialy vaccinated", color: "#787195"},
+                    {  y: {{ftyfoidFever}}, name:"Unvaccinated", color: "#363636"}
+                    ],
+                }]
+            }
+        );
+
+        chart20.render();
+        
+        var chart21 = new CanvasJS.Chart("chartContainer21",
+            {
+                title:{
+                    text: " ",
+                    fontFamily: "Segoe UI",
+                    fontWeight: "bold",
+                    fontColor: "white"
+                },
+                backgroundColor: "transparent",
+                legend:{
+                    verticalAlign: "bottom",
+                    horizontalAlign: "center",
+                    fontColor: "white"
+                },
+                data: [
+                {
+                    startAngle: 45,
+                    indexLabelFontSize: 12,
+                    indexLabelFontFamily: "Segoe UI",
+                    indexLabelFontColor: "white",
+                    indexLabelLineColor: "white",
+                    indexLabelPlacement: "outside",
+                    type: "doughnut",
+                    showInLegend: true,
+                    toolTipContent: "{name}: <strong>(#percent%)</strong>",
+                    indexLabel: "{name} -  #percent%",
+                    dataPoints: [
+                    {  y: {{tyellowFever}}, name:"Fully vaccinated", color: "#f9cf91"},
+                    {  y: {{pyellowFever}}, name:"Partialy vaccinated", color: "#787195"},
+                    {  y: {{fyellowFever}}, name:"Unvaccinated", color: "#363636"}
+                    ],
+                }]
+            }
+        );
+
+        chart21.render();
+        
+        var chart22 = new CanvasJS.Chart("chartContainer22",
+            {
+                title:{
+                    text: " ",
+                    fontFamily: "Segoe UI",
+                    fontWeight: "bold",
+                    fontColor: "white"
+                },
+                backgroundColor: "transparent",
+                legend:{
+                    verticalAlign: "bottom",
+                    horizontalAlign: "center",
+                    fontColor: "white"
+                },
+                data: [
+                {
+                    startAngle: 45,
+                    indexLabelFontSize: 12,
+                    indexLabelFontFamily: "Segoe UI",
+                    indexLabelFontColor: "white",
+                    indexLabelLineColor: "white",
+                    indexLabelPlacement: "outside",
+                    type: "doughnut",
+                    showInLegend: true,
+                    toolTipContent: "{name}: <strong>(#percent%)</strong>",
+                    indexLabel: "{name} -  #percent%",
+                    dataPoints: [
+                    {  y: {{tcovid19}}, name:"Fully vaccinated", color: "#f9cf91"},
+                    {  y: {{pcovid19}}, name:"Partialy vaccinated", color: "#787195"},
+                    {  y: {{fcovid19}}, name:"Unvaccinated", color: "#363636"}
+                    ],
+                }]
+            }
+        );
+
+        chart22.render();
+    }
+</script>
+
+
+{%endblock%}

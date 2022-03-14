@@ -1,0 +1,382 @@
+{% load static %}
+
+<! DOCTYPE HTML>
+
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <style type="text/css">
+
+        html {
+            scroll-behavior: smooth;
+            background-color: red;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        body {
+            top: 0px;
+            left: 0px;
+            overflow-x: hidden;
+            width: 100%;
+            min-height:100%;
+            margin: 0px;
+            padding: 0px;
+            background-color:#1f7a82;
+            position: absolute;
+        }
+        
+        p{
+            margin-bottom:0.25rem;
+            margin-top:0.25rem;
+            padding-left:0.5rem;
+            padding-right:0.5rem;
+        }
+
+        hr{
+            width: 100%;
+            height:1px;
+            border-width:0;
+            margin:5px;
+            background-image:linear-gradient(90deg, #62a2a7, #1f7a82, 90%, #62a2a7);
+        }
+
+        .myBtn {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 99;
+            font-size: 18px;
+            border: none;
+            outline: none;
+            background-color: transparent;
+            color: white;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .myBtn a {
+            float: center;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        .myBtn:hover {
+            background-color: transparent;
+            color: white;
+        }
+
+        .text{
+            text-align: center;
+            vertical-align: middle;
+            height: 100%;
+            width: 100%;
+            padding: 0px;
+            margin: 0px;
+        }
+
+        .vertical-center {
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+        }
+
+        .social {
+            padding: 0px;
+            max-width: 40px;
+        }
+
+        .social-logo {
+            width:30px;
+            margin: 5px;
+        }
+
+        .col-footer {
+            width: 20%;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        a:hover {
+            text-decoration: none;
+        }
+
+        @media only screen and (max-width: 1270px) {
+            .col-footer {
+                width: 30%;
+            }
+        }
+        @media only screen and (max-width: 900px) {
+            .col-footer {
+                width: 50%;
+            }
+        }
+        @media only screen and (max-width: 600px) {
+            .col-footer {
+                width: 70%;
+            }
+        }
+
+        .footer {
+            width: 100%;
+        }
+
+        .container {
+            width: 100%;
+            min-height: 40vh;
+            padding: 2px;
+            margin-top: 10px;
+        }
+
+        .col-img{
+            width: 30%;
+        }
+
+        .col-img img{
+            width: 100%;
+            transform: translate(0%, 50%);
+        }
+
+        .col-text{
+            width: 70%;
+            position: relative;
+        }
+
+        .col-text p {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            font-size: 20px;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .col-img {
+                width: 50%
+            }
+            .col-img img{
+                width: 100%;
+                transform: translate(0%, 0%);
+            }
+            .col-text {
+                width: 100%;
+                position: relative;
+            }
+            .col-text p {
+                position: initial;
+                top: 50%;
+                left: 50%;
+                transform: translate(0%, 0%);
+                width: 100%;
+            }
+        }
+
+        * { padding: 0; margin: 0; }
+
+        #chart-tooltip {
+            position: fixed;
+            z-index: 999;
+            background: #000000;
+            padding: 2px;
+            display: none;
+            overflow: hidden;
+            color: white;
+            font-size: 10px;
+            font-family: sans-serif;
+            /*width and height is set by javascript*/
+        }
+
+        #chart-tooltip p { text-align: center; }
+
+        canvas canvasjs-chart-canvas {
+            background: red;
+        }
+
+        ::-moz-selection { /* Code for Firefox */
+            color: eeeeee;
+            background: #787195;
+        }
+
+        ::selection {
+            color: eeeeee;
+            background: #787195;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #62a2a7;
+        }
+
+	</style>
+
+    <title>{% block title %}Online System for Personal Health Data Management{% endblock %}</title>
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#1f7a82; z-index:99; position:fixed; width:100%;">
+        <a class="navbar-brand text-white" href="/home"><img src="{% static 'main/OSDC.png' %}" alt="LOGO" style="width:50px;"></a>
+        <li class="nav-item" style="display: {% if current_user.is_authenticated %}block{% else %}none{% endif %};">
+            <a class="nav-link text-white"><img src="{% static 'main/user.png' %}" alt="user" class="social-logo">user: {{current_user.username}}</a>
+        </li>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav" style="font-size: 16px;">
+                <li class="nav-item" style="display: {% if current_user.is_authenticated %}block{% else %}block{% endif %};">
+                    <a class="nav-link text-white" href="/prg"><img src="{% static 'main/prg.png' %}" alt="DC" class="social-logo"> Product Guide for ODYSSEE</a>
+                </li>
+                <li class="nav-item dropdown text-white" style="display: {% if current_user.is_authenticated %}block{% else %}block{% endif %};">
+                    <a class="nav-link dropdown-toggle text-white" data-toggle="dropdown" href="#"><img src="{% static 'main/charts.png' %}" alt="PD" class="social-logo"> Charts</a>
+                    <div class="dropdown-menu" style="background-color:#1f7a82;">
+                        <a class="dropdown-item text-white" href="/vdata"> Vaccinations</a>
+                        <a class="dropdown-item text-white" href="/tbdata"> Tuberculosis</a>
+                        <a class="dropdown-item text-white" href="/cedata"> Clinical Examination</a>
+                        <a class="dropdown-item text-white" href="/mhdata"> Medical History</a>
+                        <a class="dropdown-item text-white" href="/shdata"> Social Habits</a>
+                        <a class="dropdown-item text-white" href="/ghdata"> Gynecological History</a>
+                        <a class="dropdown-item text-white" href="/pddata"> Personal Data</a>
+                        <a class="dropdown-item text-white" href="/dcdata"> Doctors Comments</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown text-white" style="display: {% if current_user.is_authenticated %}block{% else %}none{% endif %};">
+                    <a class="nav-link dropdown-toggle text-white" data-toggle="dropdown" href="#"><img src="{% static 'main/tools.png' %}" alt="PD" class="social-logo"> Personal Health Records</a>
+                    <div class="dropdown-menu" style="background-color:#1f7a82;">
+                        <a class="dropdown-item text-white" href="/pdview"><img src="{% static 'main/PD.png' %}" alt="PD" class="social-logo"> Personal Data</a>
+                        <a class="dropdown-item text-white" href="/mhview"><img src="{% static 'main/MH.png' %}" alt="MH" class="social-logo"> Medical History</a>
+                        <a class="dropdown-item text-white" href="/tview"><img src="{% static 'main/T.png' %}" alt="T" class="social-logo"> Tuberculosis</a>
+                        <a class="dropdown-item text-white" href="/ceview"><img src="{% static 'main/CE.png' %}" alt="CE" class="social-logo"> Lattest Clinical Examination</a>
+                        <a class="dropdown-item text-white" href="/vview"><img src="{% static 'main/V.png' %}" alt="V" class="social-logo"> Vaccinations</a>
+                        <a class="dropdown-item text-white" href="/ctview"><img src="{% static 'main/CT.png' %}" alt="CT" class="social-logo"> Current Treatment</a>
+                        <a class="dropdown-item text-white" href="/dcview"><img src="{% static 'main/DC.png' %}" alt="DC" class="social-logo"> Lattest Doctors Comments</a>
+                        <a class="dropdown-item text-white" href="/shview"><img src="{% static 'main/SH.png' %}" alt="SH" class="social-logo"> Social Habits</a>
+                        <a class="dropdown-item text-white" href="/ghview"><img src="{% static 'main/GH.png' %}" alt="GH" class="social-logo"> Gynecological History</a>
+                    </div>
+                </li>
+                <li class="nav-item" style="display: {% if current_user.is_authenticated %}block{% else %}none{% endif %};">
+                    <a class="nav-link text-white" href="/logout"><img src="{% static 'main/Lo.png' %}" alt="logout" class="social-logo">logout</a>
+                </li>
+                <li class="nav-item" style="display: {% if current_user.is_authenticated %}none{% else %}block{% endif %};">
+                    <a class="nav-link text-white" href="/login"><img src="{% static 'main/Li.png' %}" alt="login" class="social-logo">login</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+	<div id="content" name="content">
+		
+        <div class="row justify-content-center m-0">
+            <div style="margin-top: 100px;">
+                {% block header %}
+                {% endblock %}
+            </div>
+        </div>
+        <div style="height: 10vh; display: {% block blank%}{% endblock %};">
+        </div>
+        <div class="row justify-content-center m-0" id="main" style="padding-top: {% block hr-padding %}{% endblock %};">
+                <div  class="col-9">
+                    <hr style="height:5px; background-image:linear-gradient(90deg, #62a2a7, #62a2a7); display: {% block hr %}{% endblock %};">
+                </div>
+        </div>
+        <div class="row justify-content-center m-0">
+            <br>
+        </div>
+        <div class="row justify-content-center m-0">
+                <div  class="col-9" style="background-color:#62a2a7;">
+                    <div class="text-white">
+                        <div class="row justify-content-center">
+
+                            {% block view %}
+                            {% endblock %}
+
+                            {% block edit %}
+                            {% endblock %}
+
+                            {% block home %}
+                            {% endblock %}
+
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <div class="row justify-content-center m-0">
+            <br>
+            <div class="myBtn" onclick="topFunction()" id="Btn" ><a href="#top"><img src="{% static 'main/Arrow.png' %}" alt="T" style="width:40px"></a></div>
+        </div>
+        <div id="footer" name="footer" class="footer m-0 p-0" style="padding-top: 10px;">
+                <div class="col-12">
+                    <div class="row justify-content-center">
+                        <div class="col social">
+                            <a href="#"><img src="{% static 'main/facebook.png' %}" alt="facebook" class="social-logo"></a>
+                        </div>
+                        <div class="col social">
+                            <a href="#"><img src="{% static 'main/twitter.png' %}" alt="twitter" class="social-logo"></a>
+                        </div>
+                        <div class="col social">
+                            <a href="#"><img src="{% static 'main/instagram.png' %}" alt="instagram" class="social-logo"></a>
+                        </div>
+                    </div>
+                <div class="row justify-content-center">
+                    <hr style="background-image:linear-gradient(90deg, #62a2a7, #62a2a7); width: 50%;">
+                    <div class="col-12 p-0">
+                        <div class="text text-white">
+                            <p>&copy;OSDC_2021</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+	</div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+    
+    <script>
+
+        // When the user scrolls down 20px from the top of the document, display the "go to top" button
+        window.onscroll = function() {scrollFunction()};
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.getElementById("Btn").style.display = "block";
+            } else {
+                document.getElementById("Btn").style.display = "none";
+            }
+        }
+        
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
+
+{% block script%}
+{%endblock%}
+
+</body>
+
+</html>

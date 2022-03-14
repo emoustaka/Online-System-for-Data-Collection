@@ -1,0 +1,865 @@
+
+{% extends 'main/base.html' %}
+
+{% block home %}
+<div class="row justify-content-center m-1 container" style="margin-left:0px; margin-right:0px; min-height:20px;">
+    
+    <div class="row justify-content-center m-1 container" style="margin-left:0px; margin-right:0px; min-height:20px;">
+        <div class="col-text text text-white">
+            <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+        </div>
+    </div> 
+
+</div>
+<div class="row justify-content-center m-1 container" style="margin-left:0px; margin-right:0px; min-height:20px;">
+    
+    <div class="row justify-content-center m-1 container" style="margin-left:0px; margin-right:0px; min-height:20px;">
+        <div class="col-text text text-white">
+            <div id="chartContainer1" style="height: 300px; width: 100%;"></div>
+        </div>
+    </div>
+
+</div>
+<div class="row justify-content-center m-1 container" style="margin-left:0px; margin-right:0px; min-height:20px;">
+    
+    <div class="row justify-content-center m-1 container" style="margin-left:0px; margin-right:0px; min-height:20px;">
+        <div class="col-text text text-white">
+            <div id="chartContainer2" style="height: 300px; width: 100%;"></div>
+        </div>
+    </div>  
+
+</div>
+<div class="row justify-content-center m-1 container" style="margin-left:0px; margin-right:0px; min-height:20px;">
+    
+    <div class="row justify-content-center m-1 container" style="margin-left:0px; margin-right:0px; min-height:20px;">
+        <div class="col-text text text-white">
+            <div id="chartContainer3" style="height: 300px; width: 100%;"></div>
+        </div>
+    </div>  
+
+</div>
+<div class="row justify-content-center m-1 container" style="margin-left:0px; margin-right:0px; min-height:20px;">
+    
+    <div class="row justify-content-center m-1 container" style="margin-left:0px; margin-right:0px; min-height:20px;">
+        <div class="col-text text text-white">
+            <div id="chartContainer4" style="height: 300px; width: 100%;"></div>
+        </div>
+    </div>  
+
+</div>
+<div class="row justify-content-center m-1 container" style="margin-left:0px; margin-right:0px; min-height:20px;">
+    
+    <div class="row justify-content-center m-1 container" style="margin-left:0px; margin-right:0px; min-height:20px;">
+        <div class="col-text text text-white">
+            <div id="chartContainer5" style="height: 300px; width: 100%;"></div>
+        </div>
+    </div>  
+
+</div>
+<div class="row justify-content-center m-1 container" style="margin-left:0px; margin-right:0px; min-height:20px;">
+    
+    <div class="row justify-content-center m-1 container" style="margin-left:0px; margin-right:0px; min-height:20px;">
+        <div class="col-text text text-white">
+            <div id="chartContainer6" style="height: 300px; width: 100%;"></div>
+        </div>
+    </div>  
+
+</div>
+<div class="row justify-content-center m-1 container" style="margin-left:0px; margin-right:0px; min-height:20px;">
+    
+    <div class="row justify-content-center m-1 container" style="margin-left:0px; margin-right:0px; min-height:20px;">
+        <div class="col-text text text-white">
+            <div id="chartContainer7" style="height: 300px; width: 100%;"></div>
+        </div>
+    </div>  
+
+</div>
+<div class="row justify-content-center m-1 container" style="margin-left:0px; margin-right:0px; min-height:20px;">
+    
+    <div class="row justify-content-center m-1 container" style="margin-left:0px; margin-right:0px; min-height:20px;">
+        <div class="col-text text text-white">
+            <div id="chartContainer8" style="height: 300px; width: 100%;"></div>
+        </div>
+    </div>  
+
+</div>
+<div class="row justify-content-center m-1 container" style="margin-left:0px; margin-right:0px; min-height:20px;">
+    
+    <div class="row justify-content-center m-1 container" style="margin-left:0px; margin-right:0px; min-height:20px;">
+        <div class="col-text text text-white">
+            <div id="chartContainer9" style="height: 300px; width: 100%;"></div>
+        </div>
+    </div>  
+
+</div>
+<div class="row justify-content-center m-1 container" style="margin-left:0px; margin-right:0px; min-height:20px;">
+    
+    <div class="row justify-content-center m-1 container" style="margin-left:0px; margin-right:0px; min-height:20px;">
+        <div class="col-text text text-white">
+            <div id="chartContainer10" style="height: 300px; width: 100%;"></div>
+        </div>
+    </div>  
+
+</div>
+<div class="row justify-content-center m-1 container" style="margin-left:0px; margin-right:0px; min-height:20px;">
+    
+    <div class="row justify-content-center m-1 container" style="margin-left:0px; margin-right:0px; min-height:20px;">
+        <div class="col-text text text-white">
+            <div id="chartContainer11" style="height: 300px; width: 100%;"></div>
+        </div>
+    </div>  
+
+</div>
+<div class="row justify-content-center m-1 container" style="margin-left:0px; margin-right:0px; min-height:20px;">
+    
+    <div class="row justify-content-center m-1 container" style="margin-left:0px; margin-right:0px; min-height:20px;">
+        <div class="col-text text text-white">
+            <div id="chartContainer12" style="height: 300px; width: 100%;"></div>
+        </div>
+    </div>  
+
+</div>
+<div class="row justify-content-center m-1 container" style="margin-left:0px; margin-right:0px; min-height:20px;">
+    
+    <div class="row justify-content-center m-1 container" style="margin-left:0px; margin-right:0px; min-height:20px;">
+        <div class="col-text text text-white">
+            <div id="chartContainer13" style="height: 300px; width: 100%;"></div>
+        </div>
+    </div>  
+
+</div>
+<div class="row justify-content-center m-1 container" style="margin-left:0px; margin-right:0px; min-height:20px;">
+    
+    <div class="row justify-content-center m-1 container" style="margin-left:0px; margin-right:0px; min-height:20px;">
+        <div class="col-text text text-white">
+            <div id="chartContainer14" style="height: 300px; width: 100%;"></div>
+        </div>
+    </div>  
+
+</div>
+<div class="row justify-content-center m-1 container" style="margin-left:0px; margin-right:0px; min-height:20px;">
+    
+    <div class="row justify-content-center m-1 container" style="margin-left:0px; margin-right:0px; min-height:20px;">
+        <div class="col-text text text-white">
+            <div id="chartContainer15" style="height: 300px; width: 100%;"></div>
+        </div>
+    </div>  
+
+</div>
+<div class="row justify-content-center m-1 container" style="margin-left:0px; margin-right:0px; min-height:20px;">
+    
+    <div class="row justify-content-center m-1 container" style="margin-left:0px; margin-right:0px; min-height:20px;">
+        <div class="col-text text text-white">
+            <div id="chartContainer16" style="height: 300px; width: 100%;"></div>
+        </div>
+    </div>  
+
+</div>
+<div class="row justify-content-center m-1 container" style="margin-left:0px; margin-right:0px; min-height:20px;">
+    
+    <div class="row justify-content-center m-1 container" style="margin-left:0px; margin-right:0px; min-height:20px;">
+        <div class="col-text text text-white">
+            <div id="chartContainer17" style="height: 300px; width: 100%;"></div>
+        </div>
+    </div>  
+
+</div>
+<!--custom tooltip container
+<div id="chart-tooltip"></div>-->
+{%endblock%}
+
+{%block script%}
+
+
+  <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+<script type="text/javascript">
+    window.onload = function () {
+        var active = {{active}};
+        var latend = {{latend}};
+        var per1 = (active/(latend+active))*100;
+        var per2 = (latend/(latend+active))*100;
+        var chart = new CanvasJS.Chart("chartContainer",
+            {
+                title:{
+                    text: "Type of TB",
+                    fontFamily: "Impact",
+                    fontWeight: "normal",
+                    fontColor: "white"
+                },
+                backgroundColor: "transparent",
+                legend:{
+                    verticalAlign: "bottom",
+                    horizontalAlign: "center",
+                    fontColor: "white"
+                },
+                data: [
+                {
+                    //startAngle: 45,
+                    indexLabelFontSize: 20,
+                    indexLabelFontFamily: "Garamond",
+                    indexLabelFontColor: "white",
+                    indexLabelLineColor: "white",
+                    indexLabelPlacement: "outside",
+                    type: "doughnut",
+                    showInLegend: true,
+                    dataPoints: [
+                    {  y: {{active}}, legendText:"Active TB", indexLabel: per1 + "%", color: "#f9cf91"},
+                    {  y: {{latend}}, legendText:"Latend TB", indexLabel: per2 + "%", color: "#787195" }
+                    ],
+                }]
+            }
+        );
+
+        chart.render();
+        
+        var tV = {{trueV}};
+        var fV = {{falseV}};
+        var per1 = (tV/(fV+tV))*100;
+        var per2 = (fV/(fV+tV))*100;
+        var chart1 = new CanvasJS.Chart("chartContainer1",
+            {
+                title:{
+                    text: "Vaccinated fot TB",
+                    fontFamily: "Impact",
+                    fontWeight: "normal",
+                    fontColor: "white"
+                },
+                backgroundColor: "transparent",
+                legend:{
+                    verticalAlign: "bottom",
+                    horizontalAlign: "center",
+                    fontColor: "white"
+                },
+                data: [
+                {
+                    //startAngle: 45,
+                    indexLabelFontSize: 20,
+                    indexLabelFontFamily: "Garamond",
+                    indexLabelFontColor: "white",
+                    indexLabelLineColor: "white",
+                    indexLabelPlacement: "outside",
+                    type: "doughnut",
+                    showInLegend: true,
+                    dataPoints: [
+                    {  y: {{trueV}}, legendText:"Vaccinated", indexLabel: per1 + "%", color: "#f9cf91"},
+                    {  y: {{falseV}}, legendText:"Non Vaccinated", indexLabel: per2 + "%", color: "#787195" }
+                    ],
+                }]
+            }
+        );
+
+        chart1.render();
+        
+        var tA = {{trueA}};
+        var fA = {{falseA}};
+        var per1 = (tA/(fA+tA))*100;
+        var per2 = (fA/(fA+tA))*100;
+        var chart2 = new CanvasJS.Chart("chartContainer2",
+            {
+                title:{
+                    text: "Antybiotic consumption",
+                    fontFamily: "Impact",
+                    fontWeight: "normal",
+                    fontColor: "white"
+                },
+                backgroundColor: "transparent",
+                legend:{
+                    verticalAlign: "bottom",
+                    horizontalAlign: "center",
+                    fontColor: "white"
+                },
+                data: [
+                {
+                    //startAngle: 45,
+                    indexLabelFontSize: 20,
+                    indexLabelFontFamily: "Garamond",
+                    indexLabelFontColor: "white",
+                    indexLabelLineColor: "white",
+                    indexLabelPlacement: "outside",
+                    type: "doughnut",
+                    showInLegend: true,
+                    dataPoints: [
+                    {  y: {{trueA}}, legendText:"Take antybiotic", indexLabel: per1 + "%", color: "#f9cf91"},
+                    {  y: {{falseA}}, legendText:"No antybiotic consumption", indexLabel: per2 + "%", color: "#787195" }
+                    ],
+                }]
+            }
+        );
+
+        chart2.render();
+        
+        var t = {{tdt}};
+        var f = {{fdt}};
+        var per1 = (t/(f+t))*100;
+        var per2 = (f/(f+t))*100;
+        var chart3 = new CanvasJS.Chart("chartContainer3",
+            {
+                title:{
+                    text: "Dt",
+                    fontFamily: "Impact",
+                    fontWeight: "normal",
+                    fontColor: "white"
+                },
+                backgroundColor: "transparent",
+                legend:{
+                    verticalAlign: "bottom",
+                    horizontalAlign: "center",
+                    fontColor: "white"
+                },
+                data: [
+                {
+                    //startAngle: 45,
+                    indexLabelFontSize: 20,
+                    indexLabelFontFamily: "Garamond",
+                    indexLabelFontColor: "white",
+                    indexLabelLineColor: "white",
+                    indexLabelPlacement: "outside",
+                    type: "doughnut",
+                    showInLegend: true,
+                    dataPoints: [
+                    {  y: {{tdt}}, legendText:"Dt", indexLabel: per1 + "%", color: "#f9cf91"},
+                    {  y: {{fdt}}, legendText:"No Dt", indexLabel: per2 + "%", color: "#787195" }
+                    ],
+                }]
+            }
+        );
+
+        chart3.render();
+        
+        var t = {{tdtp}};
+        var f = {{fdtp}};
+        var per1 = (t/(f+t))*100;
+        var per2 = (f/(f+t))*100;
+        var chart4 = new CanvasJS.Chart("chartContainer4",
+            {
+                title:{
+                    text: "Dtp",
+                    fontFamily: "Impact",
+                    fontWeight: "normal",
+                    fontColor: "white"
+                },
+                backgroundColor: "transparent",
+                legend:{
+                    verticalAlign: "bottom",
+                    horizontalAlign: "center",
+                    fontColor: "white"
+                },
+                data: [
+                {
+                    //startAngle: 45,
+                    indexLabelFontSize: 20,
+                    indexLabelFontFamily: "Garamond",
+                    indexLabelFontColor: "white",
+                    indexLabelLineColor: "white",
+                    indexLabelPlacement: "outside",
+                    type: "doughnut",
+                    showInLegend: true,
+                    dataPoints: [
+                    {  y: {{tdtp}}, legendText:"Dtp", indexLabel: per1 + "%", color: "#f9cf91"},
+                    {  y: {{fdtp}}, legendText:"No Dtp", indexLabel: per2 + "%", color: "#787195" }
+                    ],
+                }]
+            }
+        );
+
+        chart4.render();
+        
+        var t = {{tdtap}};
+        var f = {{fdtap}};
+        var per1 = (t/(f+t))*100;
+        var per2 = (f/(f+t))*100;
+        var chart5 = new CanvasJS.Chart("chartContainer5",
+            {
+                title:{
+                    text: "Dtap",
+                    fontFamily: "Impact",
+                    fontWeight: "normal",
+                    fontColor: "white"
+                },
+                backgroundColor: "transparent",
+                legend:{
+                    verticalAlign: "bottom",
+                    horizontalAlign: "center",
+                    fontColor: "white"
+                },
+                data: [
+                {
+                    //startAngle: 45,
+                    indexLabelFontSize: 20,
+                    indexLabelFontFamily: "Garamond",
+                    indexLabelFontColor: "white",
+                    indexLabelLineColor: "white",
+                    indexLabelPlacement: "outside",
+                    type: "doughnut",
+                    showInLegend: true,
+                    dataPoints: [
+                    {  y: {{tdtap}}, legendText:"Dtap", indexLabel: per1 + "%", color: "#f9cf91"},
+                    {  y: {{fdtap}}, legendText:"No Dtap", indexLabel: per2 + "%", color: "#787195" }
+                    ],
+                }]
+            }
+        );
+
+        chart5.render();
+        
+        var t = {{ttd}};
+        var f = {{ftd}};
+        var per1 = (t/(f+t))*100;
+        var per2 = (f/(f+t))*100;
+        var chart6 = new CanvasJS.Chart("chartContainer6",
+            {
+                title:{
+                    text: "Td",
+                    fontFamily: "Impact",
+                    fontWeight: "normal",
+                    fontColor: "white"
+                },
+                backgroundColor: "transparent",
+                legend:{
+                    verticalAlign: "bottom",
+                    horizontalAlign: "center",
+                    fontColor: "white"
+                },
+                data: [
+                {
+                    //startAngle: 45,
+                    indexLabelFontSize: 20,
+                    indexLabelFontFamily: "Garamond",
+                    indexLabelFontColor: "white",
+                    indexLabelLineColor: "white",
+                    indexLabelPlacement: "outside",
+                    type: "doughnut",
+                    showInLegend: true,
+                    dataPoints: [
+                    {  y: {{ttd}}, legendText:"Td", indexLabel: per1 + "%", color: "#f9cf91"},
+                    {  y: {{ftd}}, legendText:"No Td", indexLabel: per2 + "%", color: "#787195" }
+                    ],
+                }]
+            }
+        );
+
+        chart6.render();
+        
+        var t = {{ttdap}};
+        var f = {{ftdap}};
+        var per1 = (t/(f+t))*100;
+        var per2 = (f/(f+t))*100;
+        var chart7 = new CanvasJS.Chart("chartContainer7",
+            {
+                title:{
+                    text: "Tdap",
+                    fontFamily: "Impact",
+                    fontWeight: "normal",
+                    fontColor: "white"
+                },
+                backgroundColor: "transparent",
+                legend:{
+                    verticalAlign: "bottom",
+                    horizontalAlign: "center",
+                    fontColor: "white"
+                },
+                data: [
+                {
+                    //startAngle: 45,
+                    indexLabelFontSize: 20,
+                    indexLabelFontFamily: "Garamond",
+                    indexLabelFontColor: "white",
+                    indexLabelLineColor: "white",
+                    indexLabelPlacement: "outside",
+                    type: "doughnut",
+                    showInLegend: true,
+                    dataPoints: [
+                    {  y: {{ttdap}}, legendText:"Tdap", indexLabel: per1 + "%", color: "#f9cf91"},
+                    {  y: {{ftdap}}, legendText:"No Tdap", indexLabel: per2 + "%", color: "#787195" }
+                    ],
+                }]
+            }
+        );
+
+        chart7.render();
+        
+        var t = {{tpolioopv}};
+        var f = {{fpolioopv}};
+        var per1 = (t/(f+t))*100;
+        var per2 = (f/(f+t))*100;
+        var chart8 = new CanvasJS.Chart("chartContainer8",
+            {
+                title:{
+                    text: "Polio-OPV",
+                    fontFamily: "Impact",
+                    fontWeight: "normal",
+                    fontColor: "white"
+                },
+                backgroundColor: "transparent",
+                legend:{
+                    verticalAlign: "bottom",
+                    horizontalAlign: "center",
+                    fontColor: "white"
+                },
+                data: [
+                {
+                    //startAngle: 45,
+                    indexLabelFontSize: 20,
+                    indexLabelFontFamily: "Garamond",
+                    indexLabelFontColor: "white",
+                    indexLabelLineColor: "white",
+                    indexLabelPlacement: "outside",
+                    type: "doughnut",
+                    showInLegend: true,
+                    dataPoints: [
+                    {  y: {{tpolioopv}}, legendText:"Polio-OPV", indexLabel: per1 + "%", color: "#f9cf91"},
+                    {  y: {{fpolioopv}}, legendText:"No Polio-OPV", indexLabel: per2 + "%", color: "#787195" }
+                    ],
+                }]
+            }
+        );
+
+        chart8.render();
+        
+        var t = {{tpolioipv}};
+        var f = {{fpolioipv}};
+        var per1 = (t/(f+t))*100;
+        var per2 = (f/(f+t))*100;
+        var chart9 = new CanvasJS.Chart("chartContainer9",
+            {
+                title:{
+                    text: "Polio-IPV",
+                    fontFamily: "Impact",
+                    fontWeight: "normal",
+                    fontColor: "white"
+                },
+                backgroundColor: "transparent",
+                legend:{
+                    verticalAlign: "bottom",
+                    horizontalAlign: "center",
+                    fontColor: "white"
+                },
+                data: [
+                {
+                    //startAngle: 45,
+                    indexLabelFontSize: 20,
+                    indexLabelFontFamily: "Garamond",
+                    indexLabelFontColor: "white",
+                    indexLabelLineColor: "white",
+                    indexLabelPlacement: "outside",
+                    type: "doughnut",
+                    showInLegend: true,
+                    dataPoints: [
+                    {  y: {{tpolioipv}}, legendText:"Polio-IPV", indexLabel: per1 + "%", color: "#f9cf91"},
+                    {  y: {{fpolioipv}}, legendText:"No Polio-IPV", indexLabel: per2 + "%", color: "#787195" }
+                    ],
+                }]
+            }
+        );
+
+        chart9.render();
+        
+        var t = {{tnmr}};
+        var f = {{fnmr}};
+        var per1 = (t/(f+t))*100;
+        var per2 = (f/(f+t))*100;
+        var chart10 = new CanvasJS.Chart("chartContainer10",
+            {
+                title:{
+                    text: "nmr",
+                    fontFamily: "Impact",
+                    fontWeight: "normal",
+                    fontColor: "white"
+                },
+                backgroundColor: "transparent",
+                legend:{
+                    verticalAlign: "bottom",
+                    horizontalAlign: "center",
+                    fontColor: "white"
+                },
+                data: [
+                {
+                    //startAngle: 45,
+                    indexLabelFontSize: 20,
+                    indexLabelFontFamily: "Garamond",
+                    indexLabelFontColor: "white",
+                    indexLabelLineColor: "white",
+                    indexLabelPlacement: "outside",
+                    type: "doughnut",
+                    showInLegend: true,
+                    dataPoints: [
+                    {  y: {{tnmr}}, legendText:"nmr", indexLabel: per1 + "%", color: "#f9cf91"},
+                    {  y: {{fnmr}}, legendText:"No nmr", indexLabel: per2 + "%", color: "#787195" }
+                    ],
+                }]
+            }
+        );
+
+        chart10.render();
+        
+        var t = {{tmeaseles}};
+        var f = {{fmeaseles}};
+        var per1 = (t/(f+t))*100;
+        var per2 = (f/(f+t))*100;
+        var chart11 = new CanvasJS.Chart("chartContainer11",
+            {
+                title:{
+                    text: "measeles",
+                    fontFamily: "Impact",
+                    fontWeight: "normal",
+                    fontColor: "white"
+                },
+                backgroundColor: "transparent",
+                legend:{
+                    verticalAlign: "bottom",
+                    horizontalAlign: "center",
+                    fontColor: "white"
+                },
+                data: [
+                {
+                    //startAngle: 45,
+                    indexLabelFontSize: 20,
+                    indexLabelFontFamily: "Garamond",
+                    indexLabelFontColor: "white",
+                    indexLabelLineColor: "white",
+                    indexLabelPlacement: "outside",
+                    type: "doughnut",
+                    showInLegend: true,
+                    dataPoints: [
+                    {  y: {{tmeaseles}}, legendText:"measeles", indexLabel: per1 + "%", color: "#f9cf91"},
+                    {  y: {{fmeaseles}}, legendText:"No measeles", indexLabel: per2 + "%", color: "#787195" }
+                    ],
+                }]
+            }
+        );
+
+        chart11.render();
+        
+        var t = {{thib}};
+        var f = {{fhib}};
+        var per1 = (t/(f+t))*100;
+        var per2 = (f/(f+t))*100;
+        var chart12 = new CanvasJS.Chart("chartContainer12",
+            {
+                title:{
+                    text: "hib",
+                    fontFamily: "Impact",
+                    fontWeight: "normal",
+                    fontColor: "white"
+                },
+                backgroundColor: "transparent",
+                legend:{
+                    verticalAlign: "bottom",
+                    horizontalAlign: "center",
+                    fontColor: "white"
+                },
+                data: [
+                {
+                    //startAngle: 45,
+                    indexLabelFontSize: 20,
+                    indexLabelFontFamily: "Garamond",
+                    indexLabelFontColor: "white",
+                    indexLabelLineColor: "white",
+                    indexLabelPlacement: "outside",
+                    type: "doughnut",
+                    showInLegend: true,
+                    dataPoints: [
+                    {  y: {{thib}}, legendText:"hib", indexLabel: per1 + "%", color: "#f9cf91"},
+                    {  y: {{fhib}}, legendText:"No hib", indexLabel: per2 + "%", color: "#787195" }
+                    ],
+                }]
+            }
+        );
+
+        chart12.render();
+        
+        var t = {{thepa}};
+        var f = {{fhepa}};
+        var per1 = (t/(f+t))*100;
+        var per2 = (f/(f+t))*100;
+        var chart13 = new CanvasJS.Chart("chartContainer13",
+            {
+                title:{
+                    text: "hepa",
+                    fontFamily: "Impact",
+                    fontWeight: "normal",
+                    fontColor: "white"
+                },
+                backgroundColor: "transparent",
+                legend:{
+                    verticalAlign: "bottom",
+                    horizontalAlign: "center",
+                    fontColor: "white"
+                },
+                data: [
+                {
+                    //startAngle: 45,
+                    indexLabelFontSize: 20,
+                    indexLabelFontFamily: "Garamond",
+                    indexLabelFontColor: "white",
+                    indexLabelLineColor: "white",
+                    indexLabelPlacement: "outside",
+                    type: "doughnut",
+                    showInLegend: true,
+                    dataPoints: [
+                    {  y: {{thepa}}, legendText:"hepa", indexLabel: per1 + "%", color: "#f9cf91"},
+                    {  y: {{fhepa}}, legendText:"No hepa", indexLabel: per2 + "%", color: "#787195" }
+                    ],
+                }]
+            }
+        );
+
+        chart13.render();
+        
+        var t = {{thepb}};
+        var f = {{fhepb}};
+        var per1 = (t/(f+t))*100;
+        var per2 = (f/(f+t))*100;
+        var chart14 = new CanvasJS.Chart("chartContainer14",
+            {
+                title:{
+                    text: "hepb",
+                    fontFamily: "Impact",
+                    fontWeight: "normal",
+                    fontColor: "white"
+                },
+                backgroundColor: "transparent",
+                legend:{
+                    verticalAlign: "bottom",
+                    horizontalAlign: "center",
+                    fontColor: "white"
+                },
+                data: [
+                {
+                    //startAngle: 45,
+                    indexLabelFontSize: 20,
+                    indexLabelFontFamily: "Garamond",
+                    indexLabelFontColor: "white",
+                    indexLabelLineColor: "white",
+                    indexLabelPlacement: "outside",
+                    type: "doughnut",
+                    showInLegend: true,
+                    dataPoints: [
+                    {  y: {{thepb}}, legendText:"hepb", indexLabel: per1 + "%", color: "#f9cf91"},
+                    {  y: {{fhepb}}, legendText:"No hepb", indexLabel: per2 + "%", color: "#787195" }
+                    ],
+                }]
+            }
+        );
+
+        chart14.render();
+        
+        var t = {{tchickenpox}};
+        var f = {{fchickenpox}};
+        var per1 = (t/(f+t))*100;
+        var per2 = (f/(f+t))*100;
+        var chart15 = new CanvasJS.Chart("chartContainer15",
+            {
+                title:{
+                    text: "chickenpox",
+                    fontFamily: "Impact",
+                    fontWeight: "normal",
+                    fontColor: "white"
+                },
+                backgroundColor: "transparent",
+                legend:{
+                    verticalAlign: "bottom",
+                    horizontalAlign: "center",
+                    fontColor: "white"
+                },
+                data: [
+                {
+                    //startAngle: 45,
+                    indexLabelFontSize: 20,
+                    indexLabelFontFamily: "Garamond",
+                    indexLabelFontColor: "white",
+                    indexLabelLineColor: "white",
+                    indexLabelPlacement: "outside",
+                    type: "doughnut",
+                    showInLegend: true,
+                    dataPoints: [
+                    {  y: {{tchickenpox}}, legendText:"chickenpox", indexLabel: per1 + "%", color: "#f9cf91"},
+                    {  y: {{fchickenpox}}, legendText:"No chickenpox", indexLabel: per2 + "%", color: "#787195" }
+                    ],
+                }]
+            }
+        );
+
+        chart15.render();
+        
+        var t = {{tflu}};
+        var f = {{fflu}};
+        var per1 = (t/(f+t))*100;
+        var per2 = (f/(f+t))*100;
+        var chart16 = new CanvasJS.Chart("chartContainer16",
+            {
+                title:{
+                    text: "flu",
+                    fontFamily: "Impact",
+                    fontWeight: "normal",
+                    fontColor: "white"
+                },
+                backgroundColor: "transparent",
+                legend:{
+                    verticalAlign: "bottom",
+                    horizontalAlign: "center",
+                    fontColor: "white"
+                },
+                data: [
+                {
+                    //startAngle: 45,
+                    indexLabelFontSize: 20,
+                    indexLabelFontFamily: "Garamond",
+                    indexLabelFontColor: "white",
+                    indexLabelLineColor: "white",
+                    indexLabelPlacement: "outside",
+                    type: "doughnut",
+                    showInLegend: true,
+                    dataPoints: [
+                    {  y: {{tflu}}, legendText:"flu", indexLabel: per1 + "%", color: "#f9cf91"},
+                    {  y: {{fflu}}, legendText:"No flu", indexLabel: per2 + "%", color: "#787195" }
+                    ],
+                }]
+            }
+        );
+
+        chart16.render();
+        
+        var t = {{tpneumococcal}};
+        var f = {{fpneumococcal}};
+        var per1 = (t/(f+t))*100;
+        var per2 = (f/(f+t))*100;
+        var chart17 = new CanvasJS.Chart("chartContainer17",
+            {
+                title:{
+                    text: "pneumococcal",
+                    fontFamily: "Impact",
+                    fontWeight: "normal",
+                    fontColor: "white"
+                },
+                backgroundColor: "transparent",
+                legend:{
+                    verticalAlign: "bottom",
+                    horizontalAlign: "center",
+                    fontColor: "white"
+                },
+                data: [
+                {
+                    //startAngle: 45,
+                    indexLabelFontSize: 20,
+                    indexLabelFontFamily: "Garamond",
+                    indexLabelFontColor: "white",
+                    indexLabelLineColor: "white",
+                    indexLabelPlacement: "outside",
+                    type: "doughnut",
+                    showInLegend: true,
+                    dataPoints: [
+                    {  y: {{tpneumococcal}}, legendText:"pneumococcal", indexLabel: per1 + "%", color: "#f9cf91"},
+                    {  y: {{fpneumococcal}}, legendText:"No pneumococcal", indexLabel: per2 + "%", color: "#787195" }
+                    ],
+                }]
+            }
+        );
+
+        chart17.render();
+    }
+</script>
+
+
+{%endblock%}

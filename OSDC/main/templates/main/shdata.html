@@ -1,0 +1,203 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Clinical Examination data
+{% endblock %}
+
+{% block header %}
+    <h1 class="text-white" style="opacity: 0.8;">Social Habits data</h1>
+{% endblock %}
+
+ {% block blank%}
+	none
+ {% endblock %}
+
+{% block hr %}
+    block
+{% endblock %}
+ 
+ {% block hr-padding %}
+    0vh
+ {% endblock %}
+
+{% block home %}
+    <div class="col-2 p-0" style="background-image:linear-gradient(to left, transparent, #1f7a82);">
+    </div>
+
+	<div  class="col-8 text-left pt-4 pb-4">
+        <div class="row justify-content-center m-1 container" style="margin-left:0px; margin-right:0px; min-height:20px;">
+
+            <div class="col-12 text-white">
+                <h4 class="text text-white" style="opacity: 0.8;">Smoking</h4>
+            </div>
+            <div class="col-12 col-md-7 text-white">
+                <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+            </div>
+
+            <div class="col-12 col-md-5 text-white">
+                <p class="text text-white" style="opacity: 0.8; text-align: justify;">BLAH</p>
+            </div>
+
+            <hr>
+            
+            <div class="col-12 text-white">
+                <h4 class="text text-white" style="opacity: 0.8;">Packs of cigarets per week</h4>
+            </div>
+            <div class="col-12 col-md-7 text-white">
+                <div id="chartContainer1" style="height: 300px; width: 100%;"></div>
+            </div>
+
+            <div class="col-12 col-md-5 text-white">
+                <p class="text text-white" style="opacity: 0.8; text-align: justify;">BLAH</p>
+            </div>
+
+            <hr>
+            
+            <div class="col-12 text-white">
+                <h4 class="text text-white" style="opacity: 0.8;">Alcochol glasses per week</h4>
+            </div>
+            <div class="col-12 col-md-7 text-white">
+                <div id="chartContainer2" style="height: 300px; width: 100%;"></div>
+            </div>
+
+            <div class="col-12 col-md-5 text-white">
+                <p class="text text-white" style="opacity: 0.8; text-align: justify;">There is no global consensus on recommended maximum intake (or safe limits) of the drug alcohol (also known formally as ethanol). The guidelines provided by health agencies of governments are varied and are shown below. These recommendations concerning maximum intake are distinct from any legal restrictions (e.g. driving after consuming alcohol) that may apply in those countries. The American Heart Association recommends that those who do not already consume alcoholic beverages should not start doing so because of the negative long-term effects of alcohol consumption.</p>
+            </div>
+
+            <hr>
+
+        </div>
+
+    </div>
+
+    <div class="col-2 p-0" style=" background: linear-gradient(to right, transparent, #1f7a82);">
+    </div>
+<!--custom tooltip container
+<div id="chart-tooltip"></div>-->
+{%endblock%}
+
+{%block script%}
+
+
+  <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+<script type="text/javascript">
+    window.onload = function () {
+
+        var chart = new CanvasJS.Chart("chartContainer",
+            {
+                title:{
+                    text: " ",
+                    fontFamily: "Segoe UI",
+                    fontWeight: "bold",
+                    fontColor: "white"
+                },
+                backgroundColor: "transparent",
+                legend:{
+                    verticalAlign: "bottom",
+                    horizontalAlign: "center",
+                    fontColor: "white"
+                },
+                data: [
+                {
+                    startAngle: 45,
+                    indexLabelFontSize: 12,
+                    indexLabelFontFamily: "Segoe UI",
+                    indexLabelFontColor: "white",
+                    indexLabelLineColor: "white",
+                    indexLabelPlacement: "outside",
+                    type: "doughnut",
+                    showInLegend: true,
+                    toolTipContent: "{name}: <strong>(#percent%)</strong>",
+                    indexLabel: "{name} -  #percent%",
+                    dataPoints: [
+                    {  y: {{smoking}}, name:"T", color: "#f9cf91"},
+                    {  y: {{nsmoking}}, name:"F", color: "#787195" }
+                    ],
+                }]
+            }
+        );
+
+        chart.render();
+
+        var chart1 = new CanvasJS.Chart("chartContainer1",
+            {
+                title:{
+                    text: " ",
+                    fontFamily: "Segoe UI",
+                    fontWeight: "bold",
+                    fontColor: "white"
+                },
+                backgroundColor: "transparent",
+                legend:{
+                    verticalAlign: "bottom",
+                    horizontalAlign: "center",
+                    fontColor: "white"
+                },
+                data: [
+                {
+                    startAngle: 45,
+                    indexLabelFontSize: 12,
+                    indexLabelFontFamily: "Segoe UI",
+                    indexLabelFontColor: "white",
+                    indexLabelLineColor: "white",
+                    indexLabelPlacement: "outside",
+                    type: "doughnut",
+                    showInLegend: true,
+                    toolTipContent: "{name}: <strong>(#percent%)</strong>",
+                    indexLabel: "{name} -  #percent%",
+                    dataPoints: [
+                    {  y: {{pcigarettes0}}, name:"0", color: "#f9cf91"},
+                    {  y: {{pcigarettes1}}, name:"1-4", color: "#787195" },
+                    {  y: {{pcigarettes2}}, name:"5-10", color: "#f2b762" },
+                    {  y: {{pcigarettes3}}, name:"11+", color: "#343565" }
+                    ],
+                }]
+            }
+        );
+
+        chart1.render();
+
+        var chart2 = new CanvasJS.Chart("chartContainer2",
+            {
+                title:{
+                    text: " ",
+                    fontFamily: "Segoe UI",
+                    fontWeight: "bold",
+                    fontColor: "white"
+                },
+                backgroundColor: "transparent",
+                legend:{
+                    verticalAlign: "bottom",
+                    horizontalAlign: "center",
+                    fontColor: "white"
+                },
+                data: [
+                {
+                    startAngle: 45,
+                    indexLabelFontSize: 12,
+                    indexLabelFontFamily: "Segoe UI",
+                    indexLabelFontColor: "white",
+                    indexLabelLineColor: "white",
+                    indexLabelPlacement: "outside",
+                    type: "doughnut",
+                    showInLegend: true,
+                    toolTipContent: "{name}: <strong>(#percent%)</strong>",
+                    indexLabel: "{name} -  #percent%",
+                    dataPoints: [
+                    {  y: {{galcohol0}}, name:"0", color: "#f9cf91"},
+                    {  y: {{galcohol1}}, name:"1-4", color: "#787195" },
+                    {  y: {{galcohol2}}, name:"5-10", color: "#f2b762" },
+                    {  y: {{galcohol3}}, name:"11+", color: "#343565" }
+                    ],
+                }]
+            }
+        );
+
+        chart2.render();
+        
+    }
+</script>
+
+
+{%endblock%}

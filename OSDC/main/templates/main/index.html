@@ -1,0 +1,58 @@
+{% load static %}
+
+<! DOCTYPE HTML>
+
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+    <style type="text/css">
+        .text-muted {
+            color: #ffffff !important; 
+            opacity: 0.6 !important;
+            font-size: 14px;
+        }
+	</style>
+
+
+    <title>{% block title %}Login{% endblock %}</title>
+
+</head>
+
+<body style="background-color:#1f7a82; width:98%; min-height:100%;">
+ 
+	<div id="content" name="content">
+		<div class="row justify-content-center">
+			<div class="col-8 justify-content-center m-3">
+                <p class="text-center text-white font-weight-light text-center" style="font-size:1rem;"><img src="{% static 'main/OSDC.png' %}" alt="LOGO" style="width:10vw">
+                    <br><br>
+                    <b>O</b>nline <b>S</b>ystem for <b>P</b>ersonal <b>H</b>ealth <b>D</b>ata <b>M</b>anagement
+                    <br>
+                    special support for Tuberculosis incidents
+                </p>
+                
+                <hr style="height:5px;border-width:0; background-color:#62a2a7" class="col-4">
+            </div>
+		</div>
+        <br>
+        <div class="row justify-content-center">
+                <div  class="col-6" style="background-color:#62a2a7;">
+                    {% block content %}
+                    {% endblock %}
+                </div>
+        </div>
+        <br>
+	</div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

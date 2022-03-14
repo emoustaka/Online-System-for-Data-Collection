@@ -1,0 +1,51 @@
+{% extends 'main/view.html' %}
+{% load static %}
+
+{% block title %}
+Social Habits
+{% endblock %}
+
+{% block header %}
+    <h1 class="text-white" style="opacity: 0.8;">Social Habits</h1>
+{% endblock %}
+
+{% block info %}
+
+
+    <div class="text">
+         <p>Here will be presented your social habits data, if you are registered in the platform.</p>
+    </div>
+
+{% endblock %}
+
+{% block content %}
+			{% if current_user.socialhabits.all %}
+				{% for sh in current_user.socialhabits.all %}
+					<p>Starting age of smoking: {{sh.startAge}}</p>
+                    <hr>
+					<p>Ending age of smoking: {{sh.endAge}}</p>
+                    <hr>
+					<p>Smoking years: {{sh.smokingYears}}</p>
+                    <hr>
+					<p>Number of packs of cigarets per week: {{sh.numOfPacksOfCigarettes}}</p>
+                    <hr>
+					<p>Number of alcohol glasses per week: {{sh.numOfAlcoholGlasses}}</p>
+				{% endfor %}
+			{% else %}
+				<div class="row justify-content-center">
+					<p>Here will be presented all your social habits' data.</p>
+				</div>
+			{% endif %}
+{% endblock %}
+
+{% block image %}
+	url('{% static 'main/SHm.png' %}')
+{% endblock %}
+
+{% block button %}
+	Edit Social Habits
+{% endblock %}
+
+{% block link %}
+	/sh
+{% endblock %}

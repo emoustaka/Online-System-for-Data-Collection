@@ -1,0 +1,46 @@
+{% extends 'main/view.html' %}
+{% load static %}
+
+{% block title %}
+Curent Treatment
+{% endblock %}
+
+{% block header %}
+    <h1 class="text-white" style="opacity: 0.8;">Curent Treatment</h1>
+{% endblock %}
+
+
+{% block info %}
+
+
+    <div class="text">
+         <p>Here will be presented data about your current treatment, if you are registered in the platform.</p>
+    </div>
+
+{% endblock %}
+
+{% block content %}
+    {% if current_user.currenttreatment.all %}
+                {% for ct in current_user.currenttreatment.all %}
+                    <p>text: {{ct.text}}</p>
+                {% endfor %}
+			{% else %}
+				<div class="row justify-content-center">
+					<p>Here will be presented all your current treatment's data.</p>
+				</div>
+			{% endif %}
+
+{% endblock %}
+
+{% block image %}
+	url('{% static 'main/CTmt.png' %}')
+{% endblock %}
+
+{% block button %}
+	Edit Curent Treatment
+{% endblock %}
+
+{% block link %}
+	/ct
+{% endblock %}
+

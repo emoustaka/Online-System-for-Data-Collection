@@ -1,0 +1,58 @@
+{% extends 'main/edit.html' %}
+
+{% block title %}
+Gynecological History
+{% endblock %}
+
+{% load crispy_forms_tags %}
+
+    {% block header %}
+        <h1 class="text-white" style="opacity: 0.8;">Gynecological History</h1>
+    {% endblock %}
+
+
+{% block content %}
+
+	<form method="post" action="/gh/" class="text-white">
+        {% csrf_token %}
+        
+        <div class="form-row">
+            <div class="form-group col-md-6 mb-0">
+              {{ form.startAge|as_crispy_field }}
+            </div>
+            <div class="form-group col-md-6 mb-0">
+              {{ form.endAge|as_crispy_field }}
+            </div>
+        </div>
+        
+        <div class="form-row">
+            <div class="form-group col-md-6 mb-0">
+              {{ form.numOfChildren|as_crispy_field }}
+            </div>
+            <div class="form-group col-md-6 mb-0">
+              {{ form.notCompletedPregnancies|as_crispy_field }}
+            </div>
+        </div>
+        
+        <div class="form-row">
+            <div class="form-group col-md-6 mb-0">
+              {{ form.endometriosis|as_crispy_field }}
+            </div>
+            <div class="form-group col-md-6 mb-0">
+              {{ form.polycysticOvarySyndrome|as_crispy_field }}
+            </div>
+        </div>
+        
+        <div class="form-row">
+            <div class="form-group col-md-6 mb-0">
+              {{ form.hormonalContraceptiveTherapy|as_crispy_field }}
+            </div>
+            <div class="form-group col-md-6 mb-0">
+              {{ form.hormoneTherapyPregnancy|as_crispy_field }}
+            </div>
+        </div>
+
+	  	<button name="save" type="submit" class="btn btn-lg btn-block" style="background-image:linear-gradient(to left, transparent, #1f7a82 49%, #1f7a82 51%, transparent);"><div class="text-white" style="opacity:0.7;">Save</div></button>
+	</form>
+
+{% endblock %}

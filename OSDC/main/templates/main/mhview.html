@@ -1,0 +1,54 @@
+{% extends 'main/view.html' %}
+{% load static %}
+
+{% block title %}
+Medical History
+{% endblock %}
+
+{% block header %}
+    <h1 class="text-white" style="opacity: 0.8;">Medical History</h1>
+{% endblock %}
+
+{% block info %}
+
+
+    <div class="text">
+         <p>Here will be presented your medical history data, if you are registered in the platform.</p>
+    </div>
+
+{% endblock %}
+
+{% block content %}
+			{% if current_user.medicalhistory.all %}
+				{% for mh in current_user.medicalhistory.all %}
+					<p>Diseases: {{mh.diseses}}</p>
+                    <hr>
+					<p>Daily Medication: {{mh.dailyMedication}}</p>
+                    <hr>
+					<p>Cancer or Tumor: {{mh.cancerOrTumor}}</p>
+                    <hr>
+					<p>Blood Transfusions: {{mh.bloodTransfusions}}</p>
+                    <hr>
+					<p>Allergies: {{mh.allergies}}</p>
+                    <hr>
+					<p>Surgeries: {{mh.surgeries}}</p>
+				{% endfor %}
+			{% else %}
+				<div class="row justify-content-center">
+					<p>Here will be presented all your medicsl history's data.</p>
+				</div>
+				{% endif %}
+
+{% endblock %}
+
+{% block image %}
+	url('{% static 'main/MHmt.png' %}')
+{% endblock %}
+
+{% block button %}
+	Edit Medical History
+{% endblock %}
+
+{% block link %}
+	/mh
+{% endblock %}
